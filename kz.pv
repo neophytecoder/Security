@@ -82,6 +82,14 @@ let Sh(k:symkey) =
 	let pair2 = enc(symkey2bitstring(k), ltk(ida)) in
 	out(c, (pair1,pair2)).
 
+(* honest server *)
+let Sh(k:symkey) =
+	in(c, (ida:id, msg1:bitstring) );
+	let (idb:id, na:bitstring, nbkbs:bitstring) = dec(msg1, ltk(ida)) in
+	let nb = dec(nbkbs, ltk(idb)) in 
+	let pair1 = enc((na,nb, k),ltk(idb)) in
+	let pair2 = enc(symkey2bitstring(k), ltk(ida)) in
+	out(c, (pair1,pair2));
 
 
 (* dishonest server *)

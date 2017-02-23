@@ -1,0 +1,93 @@
+free c:channel.  (* declaring a free channel name *)
+
+type id.
+type symkey.
+type pkey.
+type skey.
+
+free a, b, d:id.
+
+
+(* Symetric key cryptography *)
+fun ltk(id):symkey [private].		(* public key*)
+fun enc(bitstring, symkey):bitstring. 	(* symmetric encryption *)
+fun dec(bitstring, symkey):bitstring.	(* symmetric decryption *)
+equation forall x:bitstring, y:symkey; dec(enc(x,y),y) = x.
+
+fun symkey2bitstring(symkey):bitstring [typeConverter].
+fun bitstring2symk(bitstring):symkey [typeConverter].
+fun id2bitstring(id):bitstring [typeConverter].
+fun bitstring2id(bitstring):id [typeConverter].
+fun bitstring2symkey(bitstring):symkey [typeConverter].
+
+(* hash function *)
+fun hash(bitstring):bitstring.
+
+(* Asymmetric key cryptography *)
+fun pk(id):pkey.			(* public key*)
+fun sk(id):skey [private]. (* sk is a private function, i.e. cannot be applied by the adversary *)
+fun aenc(bitstring, pkey):bitstring. 	(* asymmetric encryption *)
+fun adec(bitstring, skey):bitstring.	(* asymmetric decryption *)
+equation forall x:bitstring, y:id; adec(aenc(x,pk(y)),sk(y)) = x.
+
+event reach.
+
+(*query event(reach()).*)
+query attacker(new q).
+(*query attacker(new r).*)
+
+let PA(ia:id, ra:id) =
+	new na:bitstring;
+	out(c, (ia, na));
+	in(c, (hash1:bitstring, nbKSA:bitstring) );
+	let nonceB = dec(nbKSA, ltk(ia)) in 
+	if (hash1 = hash((ra,na) )) then 
+		out(c, hash((ia, nonceB)));
+	if( not(ia=d) || not(ra=d) ) then  (
+		new q:bitstring;
+		out(c, enc(q, bitstring2symkey( (na,nonceB) )))
+	).
+
+let PB(ib:id, rb:id)=
+	new nb:bitstring;
+	in(c, (idA:id, nonceA:bitstring));
+	let idAKsb = enc(id2bitstring(idA), ltk(rb)) in
+	out(c, (rb, idAKsb));
+	in(c, kSAkSB:bitstring);
+	let kSA = bitstring2symkey( dec(kSAkSB, ltk(rb)) ) in
+	let msg1 = (hash( (rb, nonceA) ), enc(nb, kSA)) in
+	out(c, msg1);
+	in(c, hash2:bitstring);
+	if( not(ib=d) || not(rb=d) ) then  (
+			new r:bitstring;
+			out(c, enc(r, bitstring2symkey( (nonceA,nb) )));
+			event reach
+	) else (
+		event reach
+	).
+	
+
+
+
+(* honest server *)
+let Sh(k:symkey) =
+	in(c, (iB:bitstring, idAKsb:bitstring));
+	let idB = bitstring2id(iB) in
+	let idA = bitstring2id(dec(idAKsb, ltk(idB))) in
+	let kSAkSB = enc(symkey2bitstring(ltk(idA)), ltk(idB)) in
+	out(c, kSAkSB).
+
+(* dishonest server *)
+let Sd(k:symkey) =
+	in(c, (iB:bitstring, idAKsb:bitstring));
+	let idB = bitstring2id(iB) in
+	let idA = bitstring2id(dec(idAKsb, ltk(idB))) in
+	let kSAkSB = enc(symkey2bitstring(ltk(idA)), ltk(idB)) in
+	out(c, kSAkSB);
+	out(c, ltk(idA)); out(c, ltk(idB)).
+
+process ! in(c,i1:id); ! in(c,r1:id); PA(i1,r1) | 
+		! in(c,i2:id); ! in(c,r2:id); PB(i2,r2) | 
+		! new kabh:symkey; Sh(kabh) |
+		! new kabdh:symkey; Sd(kabdh) |
+		out(c,sk(d)); out(c, ltk(d))
