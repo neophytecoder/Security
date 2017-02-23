@@ -86,7 +86,7 @@ let Sd(k:symkey) =
 	out(c, kSAkSB);
 	out(c, ltk(idA)); out(c, ltk(idB)).
 
-process ! in(c,i1:id); ! in(c,r1:id); PA(i1,r1) | 
+process  ! in(c,r1:id); PA(a,r1) | 
 		! in(c,i2:id); ! in(c,r2:id); PB(i2,r2) | 
 		! new kabh:symkey; Sh(kabh) |
 		! new kabdh:symkey; Sd(kabdh) |
