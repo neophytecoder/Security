@@ -9,27 +9,32 @@
 Abbreviations:
 <ul>
 
-<li><span class="var">na_4407</span> <span class="conn">=</span> <span class="name">na</span>[r1 = <span class="name">d</span>[],!2 = <span class="var">@sid_4381</span>,i1 = <span class="var">i1_4380</span>,!1 = <span class="var">@sid_4382</span>]
-<li><span class="var">nb_4408</span> <span class="conn">=</span> <span class="name">nb</span>[r2 = <span class="var">r2_4361</span>,!4 = <span class="var">@sid_4364</span>,i2 = <span class="name">d</span>[],!3 = <span class="var">@sid_4365</span>,r1 = <span class="var">r1_4362</span>,!2 = <span class="var">@sid_4366</span>,i1 = <span class="var">i1_4363</span>,!1 = <span class="var">@sid_4367</span>]
+<li><span class="var">nb_5572</span> <span class="conn">=</span> <span class="name">nb</span>[r2 = <span class="name">b</span>[],!4 = <span class="var">endsid_5570</span>,i2 = <span class="name">a</span>[],!3 = <span class="var">@sid_5564</span>,r1 = <span class="var">r1_5565</span>,!2 = <span class="var">@sid_5566</span>,i1 = <span class="var">i1_5567</span>,!1 = <span class="var">@sid_5568</span>]
+<li><span class="var">nb_5573</span> <span class="conn">=</span> <span class="name">nb</span>[r2 = <span class="name">a</span>[],!4 = <span class="var">@sid_5557</span>,i2 = <span class="name">b</span>[],!3 = <span class="var">@sid_5558</span>,r1 = <span class="var">r1_5555</span>,!2 = <span class="var">@sid_5559</span>,i1 = <span class="var">i1_5556</span>,!1 = <span class="var">@sid_5560</span>]
 </ul>
-apply <span class="fun">2-tuple</span> <span class="pred">attacker</span>(<span class="fun"></span>(<span class="var">na_4407</span>,<span class="var">nb_4408</span>))<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause6" target="clauses">clause 6</a> <span class="pred">attacker</span>(<span class="var">na_4407</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause29" target="clauses">clause 29</a> <span class="pred">attacker</span>(<span class="fun">aenc</span>(<span class="var">na_4407</span>,<span class="fun">pk</span>(<span class="name">d</span>[])))<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">nBkA_4378</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="name">d</span>[])<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hypothesis <span class="pred">attacker</span>(<span class="var">i1_4380</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="fun">sk</span>(<span class="name">d</span>[]))<br>
-&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause6" target="clauses">clause 6</a> <span class="pred">attacker</span>(<span class="var">nb_4408</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause37" target="clauses">clause 37</a> <span class="pred">attacker</span>(<span class="fun">aenc</span>(<span class="var">nb_4408</span>,<span class="fun">pk</span>(<span class="name">d</span>[])))<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="name">d</span>[])<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hypothesis <span class="pred">attacker</span>(<span class="var">r2_4361</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause21" target="clauses">clause 21</a> <span class="pred">attacker</span>(<span class="name">d</span>[])<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hypothesis <span class="pred">attacker</span>(<span class="var">r1_4362</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;hypothesis <span class="pred">attacker</span>(<span class="var">i1_4363</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause46" target="clauses">clause 46</a> <span class="pred">attacker</span>(<span class="fun">sk</span>(<span class="name">d</span>[]))<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">r2_4368</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">i2_4369</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">r1_4370</span>)<br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">i1_4371</span>)<br>
+<a href="clauses1.html#clause51" target="clauses">clause 51</a> <span class="pred">end</span>(<span class="var">endsid_5570</span>,<span class="fun">acceptR</span>(<span class="name">a</span>[],<span class="name">b</span>[],<span class="var">nb_5572</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause45" target="clauses">clause 45</a> <span class="pred">attacker</span>(<span class="fun">aenc</span>(<span class="fun">hash</span>(<span class="fun"></span>(<span class="var">nb_5572</span>,<span class="var">nb_5573</span>,<span class="name">b</span>[],<span class="name">a</span>[])),<span class="fun">pk</span>(<span class="name">b</span>[])))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause37" target="clauses">clause 37</a> <span class="pred">attacker</span>(<span class="fun">aenc</span>(<span class="var">nb_5572</span>,<span class="fun">pk</span>(<span class="name">a</span>[])))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="name">a</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="name">b</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="name">a</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="var">r1_5565</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="var">i1_5567</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="name">b</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="name">a</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="name">b</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="var">r1_5555</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="var">i1_5556</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause37" target="clauses">clause 37</a> <span class="pred">attacker</span>(<span class="fun">aenc</span>(<span class="var">nb_5573</span>,<span class="fun">pk</span>(<span class="name">b</span>[])))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="name">b</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="name">a</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="name">b</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">r1_5555</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">i1_5556</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="name">a</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause23" target="clauses">clause 23</a> <span class="pred">attacker</span>(<span class="name">b</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause24" target="clauses">clause 24</a> <span class="pred">attacker</span>(<span class="name">a</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;hypothesis <span class="pred">attacker</span>(<span class="var">r1_5565</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;hypothesis <span class="pred">attacker</span>(<span class="var">i1_5567</span>)<br>
 </body>
 </html>

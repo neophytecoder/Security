@@ -7,248 +7,361 @@ P0__0 [label = "Honest Process", shape = plaintext]
 {rank = same; P0__0 Att__0}
 P0__0 -> P0__1 [label = "", weight = 100]
 P0__1 [label = "!", shape = ellipse]
-{rank = same; P0_2__1 P0_1__1 P0_0__1}
-P0_2__1 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
-P0__1 -> P0_2__1 [label = ""]
+{rank = same; P0_1__1 P0_0__1}
 P0_1__1 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
 P0__1 -> P0_1__1 [label = ""]
 P0_0__1 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
 P0__1 -> P0_0__1 [label = ""]
-P0_2__1 -> P0_2__2 [label = "", weight = 100]
 P0_1__1 -> P0_1__2 [label = "", weight = 100]
 P0_0__1 -> P0_0__2 [label = "", weight = 100]
 Att__0 -> P__1 [label = "", weight = 100]
-{rank = same; P__1 P0_0__2 P0_1__2 P0_2__2}
-P0_2__2 -> P0_2__3 [label = "", weight = 100]
-P__1 -> P__2 [label = "", weight = 100]
-{rank = same; P__2 P0_2__3}
-P0_2__3 -> P__2 [label = "a_4410", arrowhead = normal, dir = back]
-P0_2__3 -> P0_2__4 [label = "", weight = 100]
+{rank = same; P__1 P0_0__2 P0_1__2}
 P0_1__2 -> P0_1__3 [label = "", weight = 100]
+P__1 -> P__2 [label = "", weight = 100]
+{rank = same; P__2 P0_1__3}
+P0_1__3 -> P__2 [label = "a_5584", arrowhead = normal, dir = back]
+P0_1__3 -> P0_1__4 [label = "", weight = 100]
 P0_0__2 -> P0_0__3 [label = "", weight = 100]
 P__2 -> P__3 [label = "", weight = 100]
-{rank = same; P__3 P0_0__3 P0_1__3 P0_2__4}
-P0_2__4 [label = "!", shape = ellipse]
-P0_2_0__4 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
-P0_2__4 -> P0_2_0__4 [label = "", weight = 100]
-P0_2_0__4 -> P0_2_0__5 [label = "", weight = 100]
-P0_1__3 -> P0_1__4 [label = "", weight = 100]
+{rank = same; P__3 P0_0__3 P0_1__4}
+P0_1__4 [label = "!", shape = ellipse]
+P0_1_0__4 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
+P0_1__4 -> P0_1_0__4 [label = "", weight = 100]
+P0_1_0__4 -> P0_1_0__5 [label = "", weight = 100]
 P0_0__3 -> P0_0__4 [label = "", weight = 100]
 P__3 -> P__4 [label = "", weight = 100]
-{rank = same; P__4 P0_0__4 P0_1__4 P0_2_0__5}
-P0_2_0__5 -> P0_2_0__6 [label = "", weight = 100]
+{rank = same; P__4 P0_0__4 P0_1_0__5}
+P0_1_0__5 -> P0_1_0__6 [label = "", weight = 100]
 P__4 -> P__5 [label = "", weight = 100]
-{rank = same; P__5 P0_2_0__6}
-P0_2_0__6 -> P__5 [label = "d", arrowhead = normal, dir = back]
-P0_2_0__6 -> P0_2_0__7 [label = "", weight = 100]
-P0_1__4 -> P0_1__5 [label = "", weight = 100]
+{rank = same; P__5 P0_1_0__6}
+P0_1_0__6 -> P__5 [label = "a_5582", arrowhead = normal, dir = back]
+P0_1_0__6 -> P0_1_0__7 [label = "", weight = 100]
 P0_0__4 -> P0_0__5 [label = "", weight = 100]
 P__5 -> P__6 [label = "", weight = 100]
-{rank = same; P__6 P0_0__5 P0_1__5 P0_2_0__7}
+{rank = same; P__6 P0_0__5 P0_1_0__7}
 /*RPar */
-P0_2_0__7 -> P0_2_0_1__7 [label = ""]
-P0_2_0__7 -> P0_2_0_0__7 [label = ""]
-P0_2_0__7 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
-{rank = same; P0_2_0_0__7 P0_2_0_1__7}
-P0_2_0_0__7 [label = "!", shape = ellipse]
-P0_2_0_1__7 -> P0_2_0_1__8 [label = "", weight = 100]
-P0_2_0_1__8 [shape = record, label = "{ Beginning of process PA(a, d) | new na_4428 | event startI(a,d,na_4428)}"]
-P0_2_0_1__8 -> P0_2_0_1__9 [label = "", weight = 100]
-P0_2_0_1__9 -> P0_2_0_1__10 [label = "", weight = 100]
-P0_2_0_0__8 [label = "", style = invisible]
-P0_2_0_0__7 -> P0_2_0_0__8 [label = "", weight = 100, style = invisible]
-P0_1__5 -> P0_1__6 [label = "", weight = 100]
+P0_1_0__7 -> P0_1_0_1__7 [label = ""]
+P0_1_0__7 -> P0_1_0_0__7 [label = ""]
+P0_1_0__7 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
+{rank = same; P0_1_0_0__7 P0_1_0_1__7}
+P0_1_0_0__7 [label = "!", shape = ellipse]
+P0_1_0_0_0__7 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
+P0_1_0_0__7 -> P0_1_0_0_0__7 [label = "", weight = 100]
+P0_1_0_1__7 -> P0_1_0_1__8 [label = "", weight = 100]
+P0_1_0_1__8 [shape = record, label = "{ Beginning of process PA(a, a_5582) | new na_5687}"]
+P0_1_0_1__8 -> P0_1_0_1__9 [label = "", weight = 100]
+P0_1_0_0_0__7 -> P0_1_0_0_0__8 [label = "", weight = 100]
 P0_0__5 -> P0_0__6 [label = "", weight = 100]
 P__6 -> P__7 [label = "", weight = 100]
-{rank = same; P__7 P0_0__6 P0_1__6 P0_2_0_0__8 P0_2_0_1__10}
-P0_2_0_1__10 -> P0_2_0_1__11 [label = "", weight = 100]
+{rank = same; P__7 P0_0__6 P0_1_0_0_0__8}
+P0_1_0_0_0__8 -> P0_1_0_0_0__9 [label = "", weight = 100]
 P__7 -> P__8 [label = "", weight = 100]
-{rank = same; P__8 P0_2_0_1__11}
-P0_2_0_1__11 -> P__8 [label = "a", arrowhead = normal]
-P0_2_0_1__11 -> P0_2_0_1__12 [label = "", weight = 100]
-P0_2_0_0__9 [label = "", style = invisible]
-P0_2_0_0__8 -> P0_2_0_0__9 [label = "", weight = 100, style = invisible]
-P0_1__6 -> P0_1__7 [label = "", weight = 100]
+{rank = same; P__8 P0_1_0_0_0__9}
+P0_1_0_0_0__9 -> P__8 [label = "b", arrowhead = normal, dir = back]
+P0_1_0_0_0__9 -> P0_1_0_0_0__10 [label = "", weight = 100]
 P0_0__6 -> P0_0__7 [label = "", weight = 100]
 P__8 -> P__9 [label = "", weight = 100]
-{rank = same; P__9 P0_0__7 P0_1__7 P0_2_0_0__9 P0_2_0_1__12}
-P0_2_0_1__12 -> P0_2_0_1__13 [label = "", weight = 100]
-P0_2_0_0__10 [label = "", style = invisible]
-P0_2_0_0__9 -> P0_2_0_0__10 [label = "", weight = 100, style = invisible]
-P0_1__7 -> P0_1__8 [label = "", weight = 100]
+{rank = same; P__9 P0_0__7 P0_1_0_0_0__10}
+P0_1_0_0_0__10 [label = "!", shape = ellipse]
+P0_1_0_0_0_0__10 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
+P0_1_0_0_0__10 -> P0_1_0_0_0_0__10 [label = "", weight = 100]
+P0_1_0_0_0_0__10 -> P0_1_0_0_0_0__11 [label = "", weight = 100]
 P0_0__7 -> P0_0__8 [label = "", weight = 100]
 P__9 -> P__10 [label = "", weight = 100]
-{rank = same; P__10 P0_0__8 P0_1__8 P0_2_0_0__10 P0_2_0_1__13}
-P0_2_0_1__13 -> P0_2_0_1__14 [label = "", weight = 100]
+{rank = same; P__10 P0_0__8 P0_1_0_0_0_0__11}
+P0_1_0_0_0_0__11 -> P0_1_0_0_0_0__12 [label = "", weight = 100]
 P__10 -> P__11 [label = "", weight = 100]
-{rank = same; P__11 P0_2_0_1__14}
-P0_2_0_1__14 -> P__11 [label = "a_4419", arrowhead = normal, dir = back]
-P0_2_0_1__14 -> P0_2_0_1__15 [label = "", weight = 100]
-P0_2_0_0__11 [label = "", style = invisible]
-P0_2_0_0__10 -> P0_2_0_0__11 [label = "", weight = 100, style = invisible]
-P0_1__8 -> P0_1__9 [label = "", weight = 100]
+{rank = same; P__11 P0_1_0_0_0_0__12}
+P0_1_0_0_0_0__12 -> P__11 [label = "a", arrowhead = normal, dir = back]
+P0_1_0_0_0_0__12 -> P0_1_0_0_0_0__13 [label = "", weight = 100]
 P0_0__8 -> P0_0__9 [label = "", weight = 100]
 P__11 -> P__12 [label = "", weight = 100]
-{rank = same; P__12 P0_0__9 P0_1__9 P0_2_0_0__11 P0_2_0_1__15}
-P0_2_0_1__15 -> P0_2_0_1__16 [label = "", weight = 100]
-P0_2_0_0__12 [label = "", style = invisible]
-P0_2_0_0__11 -> P0_2_0_0__12 [label = "", weight = 100, style = invisible]
-P0_1__9 -> P0_1__10 [label = "", weight = 100]
+{rank = same; P__12 P0_0__9 P0_1_0_0_0_0__13}
+/*RPar */
+P0_1_0_0_0_0__13 -> P0_1_0_0_0_0_1__13 [label = ""]
+P0_1_0_0_0_0__13 -> P0_1_0_0_0_0_0__13 [label = ""]
+P0_1_0_0_0_0__13 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
+{rank = same; P0_1_0_0_0_0_0__13 P0_1_0_0_0_0_1__13}
+P0_1_0_0_0_0_0__13 -> P0_1_0_0_0_0_0__14 [label = "", weight = 100]
 P0_0__9 -> P0_0__10 [label = "", weight = 100]
 P__12 -> P__13 [label = "", weight = 100]
-{rank = same; P__13 P0_0__10 P0_1__10 P0_2_0_0__12 P0_2_0_1__16}
-P0_2_0_1__16 -> P0_2_0_1__17 [label = "", weight = 100]
+{rank = same; P__13 P0_0__10 P0_1_0_0_0_0_0__14}
+P0_1_0_0_0_0_0__14 -> P0_1_0_0_0_0_0__15 [label = "", weight = 100]
 P__13 -> P__14 [label = "", weight = 100]
-{rank = same; P__14 P0_2_0_1__17}
-P0_2_0_1__17 -> P__14 [label = "aenc(na_4428,pk(d))", arrowhead = normal]
-P0_2_0_1__17 -> P0_2_0_1__18 [label = "", weight = 100]
-P0_2_0_0__13 [label = "", style = invisible]
-P0_2_0_0__12 -> P0_2_0_0__13 [label = "", weight = 100, style = invisible]
-P0_1__10 -> P0_1__11 [label = "", weight = 100]
+{rank = same; P__14 P0_1_0_0_0_0_0__15}
+P0_1_0_0_0_0_0__15 -> P__14 [label = "sk(d)", arrowhead = normal]
+P0_1_0_0_0_0_0__15 -> P0_1_0_0_0_0_0__16 [label = "", weight = 100]
 P0_0__10 -> P0_0__11 [label = "", weight = 100]
 P__14 -> P__15 [label = "", weight = 100]
-{rank = same; P__15 P0_0__11 P0_1__11 P0_2_0_0__13 P0_2_0_1__18}
-P0_1__11 -> P0_1__12 [label = "", weight = 100]
+{rank = same; P__15 P0_0__11 P0_1_0_0_0_0_0__16}
+P0_1_0_0_0_0_0__16 -> P0_1_0_0_0_0_0__17 [label = "", weight = 100]
 P0_0__11 -> P0_0__12 [label = "", weight = 100]
 P__15 -> P__16 [label = "", weight = 100]
-{rank = same; P__16 P0_0__12 P0_1__12}
-P0_1__12 -> P0_1__13 [label = "", weight = 100]
+{rank = same; P__16 P0_0__12 P0_1_0_0_0_0_0__17}
+P0_1_0_0_0_0_0__17 -> P0_1_0_0_0_0_0__18 [label = "", weight = 100]
 P__16 -> P__17 [label = "", weight = 100]
-{rank = same; P__17 P0_1__13}
-P0_1__13 -> P__17 [label = "a_4417", arrowhead = normal, dir = back]
-P0_1__13 -> P0_1__14 [label = "", weight = 100]
+{rank = same; P__17 P0_1_0_0_0_0_0__18}
+P0_1_0_0_0_0_0__18 -> P__17 [label = "ltk(d)", arrowhead = normal]
+P0_1_0_0_0_0_0__18 -> P0_1_0_0_0_0_0__19 [label = "", weight = 100]
 P0_0__12 -> P0_0__13 [label = "", weight = 100]
 P__17 -> P__18 [label = "", weight = 100]
-{rank = same; P__18 P0_0__13 P0_1__14}
-P0_1__14 [label = "!", shape = ellipse]
-P0_1_0__14 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
-P0_1__14 -> P0_1_0__14 [label = "", weight = 100]
-P0_1_0__14 -> P0_1_0__15 [label = "", weight = 100]
+{rank = same; P__18 P0_0__13 P0_1_0_0_0_0_0__19}
+P0_1_0_0_0_0_1__13 -> P0_1_0_0_0_0_1__14 [label = "", weight = 100]
+P0_1_0_0_0_0_1__14 [shape = record, label = "{ Beginning of process PB(b, a) | new nb_5587 | event startR(b,a)}"]
+P0_1_0_0_0_0_1__14 -> P0_1_0_0_0_0_1__15 [label = "", weight = 100]
+P0_1_0_0_0_0_1__15 -> P0_1_0_0_0_0_1__16 [label = "", weight = 100]
+P0_1_0_0_0_0_0__20 [label = "", style = invisible]
+P0_1_0_0_0_0_0__19 -> P0_1_0_0_0_0_0__20 [label = "", weight = 100, style = invisible]
 P0_0__13 -> P0_0__14 [label = "", weight = 100]
 P__18 -> P__19 [label = "", weight = 100]
-{rank = same; P__19 P0_0__14 P0_1_0__15}
-P0_1_0__15 -> P0_1_0__16 [label = "", weight = 100]
+{rank = same; P__19 P0_0__14 P0_1_0_0_0_0_0__20 P0_1_0_0_0_0_1__16}
+P0_1_0_0_0_0_1__16 -> P0_1_0_0_0_0_1__17 [label = "", weight = 100]
 P__19 -> P__20 [label = "", weight = 100]
-{rank = same; P__20 P0_1_0__16}
-P0_1_0__16 -> P__20 [label = "a_4415", arrowhead = normal, dir = back]
-P0_1_0__16 -> P0_1_0__17 [label = "", weight = 100]
+{rank = same; P__20 P0_1_0_0_0_0_1__17}
+P0_1_0_0_0_0_1__17 -> P__20 [label = "b", arrowhead = normal, dir = back]
+P0_1_0_0_0_0_1__17 -> P0_1_0_0_0_0_1__18 [label = "", weight = 100]
+P0_1_0_0_0_0_0__21 [label = "", style = invisible]
+P0_1_0_0_0_0_0__20 -> P0_1_0_0_0_0_0__21 [label = "", weight = 100, style = invisible]
 P0_0__14 -> P0_0__15 [label = "", weight = 100]
 P__20 -> P__21 [label = "", weight = 100]
-{rank = same; P__21 P0_0__15 P0_1_0__17}
-/*RPar */
-P0_1_0__17 -> P0_1_0_1__17 [label = ""]
-P0_1_0__17 -> P0_1_0_0__17 [label = ""]
-P0_1_0__17 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
-{rank = same; P0_1_0_0__17 P0_1_0_1__17}
-P0_1_0_0__17 [label = "!", shape = ellipse]
-P0_1_0_0_0__17 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
-P0_1_0_0__17 -> P0_1_0_0_0__17 [label = "", weight = 100]
-P0_1_0_1__17 -> P0_1_0_1__18 [label = "", weight = 100]
-P0_1_0_1__18 [shape = record, label = "{ Beginning of process PA(a, a_4415) | new na_4618 | event startI(a,a_4415,na_4618)}"]
-P0_1_0_1__18 -> P0_1_0_1__19 [label = "", weight = 100]
-P0_1_0_1__19 -> P0_1_0_1__20 [label = "", weight = 100]
-P0_1_0_0_0__17 -> P0_1_0_0_0__18 [label = "", weight = 100]
+{rank = same; P__21 P0_0__15 P0_1_0_0_0_0_0__21 P0_1_0_0_0_0_1__18}
+P0_1_0_0_0_0_1__18 -> P0_1_0_0_0_0_1__19 [label = "", weight = 100]
+P0_1_0_0_0_0_0__22 [label = "", style = invisible]
+P0_1_0_0_0_0_0__21 -> P0_1_0_0_0_0_0__22 [label = "", weight = 100, style = invisible]
 P0_0__15 -> P0_0__16 [label = "", weight = 100]
 P__21 -> P__22 [label = "", weight = 100]
-{rank = same; P__22 P0_0__16 P0_1_0_0_0__18 P0_1_0_1__20}
-P0_1_0_1__20 -> P0_1_0_1__21 [label = "", weight = 100]
+{rank = same; P__22 P0_0__16 P0_1_0_0_0_0_0__22 P0_1_0_0_0_0_1__19}
+P0_1_0_0_0_0_1__19 -> P0_1_0_0_0_0_1__20 [label = "", weight = 100]
 P__22 -> P__23 [label = "", weight = 100]
-{rank = same; P__23 P0_1_0_1__21}
-P0_1_0_1__21 -> P__23 [label = "a", arrowhead = normal]
-P0_1_0_1__21 -> P0_1_0_1__22 [label = "", weight = 100]
-P0_1_0_0_0__18 -> P0_1_0_0_0__19 [label = "", weight = 100]
+{rank = same; P__23 P0_1_0_0_0_0_1__20}
+P0_1_0_0_0_0_1__20 -> P__23 [label = "aenc(nb_5587,pk(b))", arrowhead = normal]
+P0_1_0_0_0_0_1__20 -> P0_1_0_0_0_0_1__21 [label = "", weight = 100]
+P0_1_0_0_0_0_0__23 [label = "", style = invisible]
+P0_1_0_0_0_0_0__22 -> P0_1_0_0_0_0_0__23 [label = "", weight = 100, style = invisible]
 P0_0__16 -> P0_0__17 [label = "", weight = 100]
 P__23 -> P__24 [label = "", weight = 100]
-{rank = same; P__24 P0_0__17 P0_1_0_0_0__19 P0_1_0_1__22}
-P0_1_0_0_0__19 -> P0_1_0_0_0__20 [label = "", weight = 100]
+{rank = same; P__24 P0_0__17 P0_1_0_0_0_0_0__23 P0_1_0_0_0_0_1__21}
 P0_0__17 -> P0_0__18 [label = "", weight = 100]
 P__24 -> P__25 [label = "", weight = 100]
-{rank = same; P__25 P0_0__18 P0_1_0_0_0__20}
-P0_1_0_0_0__20 -> P0_1_0_0_0__21 [label = "", weight = 100]
-P__25 -> P__26 [label = "", weight = 100]
-{rank = same; P__26 P0_1_0_0_0__21}
-P0_1_0_0_0__21 -> P__26 [label = "d", arrowhead = normal, dir = back]
-P0_1_0_0_0__21 -> P0_1_0_0_0__22 [label = "", weight = 100]
+{rank = same; P__25 P0_0__18}
 P0_0__18 -> P0_0__19 [label = "", weight = 100]
-P__26 -> P__27 [label = "", weight = 100]
-{rank = same; P__27 P0_0__19 P0_1_0_0_0__22}
-P0_1_0_0_0__22 [label = "!", shape = ellipse]
-P0_1_0_0_0_0__22 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
-P0_1_0_0_0__22 -> P0_1_0_0_0_0__22 [label = "", weight = 100]
-P0_1_0_0_0_0__22 -> P0_1_0_0_0_0__23 [label = "", weight = 100]
+P__25 -> P__26 [label = "", weight = 100]
+{rank = same; P__26 P0_0__19}
+P0_0__19 -> P__26 [label = "a_5578", arrowhead = normal, dir = back]
 P0_0__19 -> P0_0__20 [label = "", weight = 100]
+P__26 -> P__27 [label = "", weight = 100]
+{rank = same; P__27 P0_0__20}
+P0_0__20 [label = "!", shape = ellipse]
+P0_0_0__20 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
+P0_0__20 -> P0_0_0__20 [label = "", weight = 100]
+P0_0_0__20 -> P0_0_0__21 [label = "", weight = 100]
 P__27 -> P__28 [label = "", weight = 100]
-{rank = same; P__28 P0_0__20 P0_1_0_0_0_0__23}
-P0_1_0_0_0_0__23 -> P0_1_0_0_0_0__24 [label = "", weight = 100]
+{rank = same; P__28 P0_0_0__21}
+P0_0_0__21 -> P0_0_0__22 [label = "", weight = 100]
 P__28 -> P__29 [label = "", weight = 100]
-{rank = same; P__29 P0_1_0_0_0_0__24}
-P0_1_0_0_0_0__24 -> P__29 [label = "a_4412", arrowhead = normal, dir = back]
-P0_1_0_0_0_0__24 -> P0_1_0_0_0_0__25 [label = "", weight = 100]
-P0_0__20 -> P0_0__21 [label = "", weight = 100]
+{rank = same; P__29 P0_0_0__22}
+P0_0_0__22 -> P__29 [label = "a_5576", arrowhead = normal, dir = back]
+P0_0_0__22 -> P0_0_0__23 [label = "", weight = 100]
 P__29 -> P__30 [label = "", weight = 100]
-{rank = same; P__30 P0_0__21 P0_1_0_0_0_0__25}
+{rank = same; P__30 P0_0_0__23}
 /*RPar */
-P0_1_0_0_0_0__25 -> P0_1_0_0_0_0_1__25 [label = ""]
-P0_1_0_0_0_0__25 -> P0_1_0_0_0_0_0__25 [label = ""]
-P0_1_0_0_0_0__25 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
-{rank = same; P0_1_0_0_0_0_0__25 P0_1_0_0_0_0_1__25}
-P0_1_0_0_0_0_0__25 -> P0_1_0_0_0_0_0__26 [label = "", weight = 100]
-P0_0__21 -> P0_0__22 [label = "", weight = 100]
+P0_0_0__23 -> P0_0_0_1__23 [label = ""]
+P0_0_0__23 -> P0_0_0_0__23 [label = ""]
+P0_0_0__23 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
+{rank = same; P0_0_0_0__23 P0_0_0_1__23}
+P0_0_0_0__23 [label = "!", shape = ellipse]
+P0_0_0_0_0__23 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
+P0_0_0_0__23 -> P0_0_0_0_0__23 [label = "", weight = 100]
+P0_0_0_1__23 -> P0_0_0_1__24 [label = "", weight = 100]
+P0_0_0_1__24 [shape = record, label = "{ Beginning of process PA(a, a_5576) | new na_5792}"]
+P0_0_0_1__24 -> P0_0_0_1__25 [label = "", weight = 100]
+P0_0_0_0_0__23 -> P0_0_0_0_0__24 [label = "", weight = 100]
 P__30 -> P__31 [label = "", weight = 100]
-{rank = same; P__31 P0_0__22 P0_1_0_0_0_0_0__26}
-P0_1_0_0_0_0_0__26 -> P0_1_0_0_0_0_0__27 [label = "", weight = 100]
+{rank = same; P__31 P0_0_0_0_0__24}
+P0_0_0_0_0__24 -> P0_0_0_0_0__25 [label = "", weight = 100]
 P__31 -> P__32 [label = "", weight = 100]
-{rank = same; P__32 P0_1_0_0_0_0_0__27}
-P0_1_0_0_0_0_0__27 -> P__32 [label = "sk(d)", arrowhead = normal]
-P0_1_0_0_0_0_0__27 -> P0_1_0_0_0_0_0__28 [label = "", weight = 100]
-P0_0__22 -> P0_0__23 [label = "", weight = 100]
+{rank = same; P__32 P0_0_0_0_0__25}
+P0_0_0_0_0__25 -> P__32 [label = "a", arrowhead = normal, dir = back]
+P0_0_0_0_0__25 -> P0_0_0_0_0__26 [label = "", weight = 100]
 P__32 -> P__33 [label = "", weight = 100]
-{rank = same; P__33 P0_0__23 P0_1_0_0_0_0_0__28}
-P0_1_0_0_0_0_0__28 -> P0_1_0_0_0_0_0__29 [label = "", weight = 100]
-P0_0__23 -> P0_0__24 [label = "", weight = 100]
+{rank = same; P__33 P0_0_0_0_0__26}
+P0_0_0_0_0__26 [label = "!", shape = ellipse]
+P0_0_0_0_0_0__26 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
+P0_0_0_0_0__26 -> P0_0_0_0_0_0__26 [label = "", weight = 100]
+P0_0_0_0_0_0__26 -> P0_0_0_0_0_0__27 [label = "", weight = 100]
 P__33 -> P__34 [label = "", weight = 100]
-{rank = same; P__34 P0_0__24 P0_1_0_0_0_0_0__29}
-P0_1_0_0_0_0_0__29 -> P0_1_0_0_0_0_0__30 [label = "", weight = 100]
+{rank = same; P__34 P0_0_0_0_0_0__27}
+P0_0_0_0_0_0__27 -> P0_0_0_0_0_0__28 [label = "", weight = 100]
 P__34 -> P__35 [label = "", weight = 100]
-{rank = same; P__35 P0_1_0_0_0_0_0__30}
-P0_1_0_0_0_0_0__30 -> P__35 [label = "ltk(d)", arrowhead = normal]
-P0_1_0_0_0_0_0__30 -> P0_1_0_0_0_0_0__31 [label = "", weight = 100]
-P0_0__24 -> P0_0__25 [label = "", weight = 100]
+{rank = same; P__35 P0_0_0_0_0_0__28}
+P0_0_0_0_0_0__28 -> P__35 [label = "b", arrowhead = normal, dir = back]
+P0_0_0_0_0_0__28 -> P0_0_0_0_0_0__29 [label = "", weight = 100]
 P__35 -> P__36 [label = "", weight = 100]
-{rank = same; P__36 P0_0__25 P0_1_0_0_0_0_0__31}
-P0_1_0_0_0_0_1__25 -> P0_1_0_0_0_0_1__26 [label = "", weight = 100]
-P0_1_0_0_0_0_1__26 [shape = record, label = "{ Beginning of process PB(d, a_4412) | new nb_4429 | event startR(d,a_4412)}"]
-P0_1_0_0_0_0_1__26 -> P0_1_0_0_0_0_1__27 [label = "", weight = 100]
-P0_1_0_0_0_0_1__27 -> P0_1_0_0_0_0_1__28 [label = "", weight = 100]
-P0_1_0_0_0_0_0__32 [label = "", style = invisible]
-P0_1_0_0_0_0_0__31 -> P0_1_0_0_0_0_0__32 [label = "", weight = 100, style = invisible]
-P0_0__25 -> P0_0__26 [label = "", weight = 100]
+{rank = same; P__36 P0_0_0_0_0_0__29}
+/*RPar */
+P0_0_0_0_0_0__29 -> P0_0_0_0_0_0_1__29 [label = ""]
+P0_0_0_0_0_0__29 -> P0_0_0_0_0_0_0__29 [label = ""]
+P0_0_0_0_0_0__29 [label = "", fixedsize = false, width = 0, height = 0, shape = none]
+{rank = same; P0_0_0_0_0_0_0__29 P0_0_0_0_0_0_1__29}
+P0_0_0_0_0_0_0__29 -> P0_0_0_0_0_0_0__30 [label = "", weight = 100]
 P__36 -> P__37 [label = "", weight = 100]
-{rank = same; P__37 P0_0__26 P0_1_0_0_0_0_0__32 P0_1_0_0_0_0_1__28}
-P0_1_0_0_0_0_1__28 -> P0_1_0_0_0_0_1__29 [label = "", weight = 100]
+{rank = same; P__37 P0_0_0_0_0_0_0__30}
+P0_0_0_0_0_0_0__30 -> P0_0_0_0_0_0_0__31 [label = "", weight = 100]
 P__37 -> P__38 [label = "", weight = 100]
-{rank = same; P__38 P0_1_0_0_0_0_1__29}
-P0_1_0_0_0_0_1__29 -> P__38 [label = "d", arrowhead = normal, dir = back]
-P0_1_0_0_0_0_1__29 -> P0_1_0_0_0_0_1__30 [label = "", weight = 100]
-P0_1_0_0_0_0_0__33 [label = "", style = invisible]
-P0_1_0_0_0_0_0__32 -> P0_1_0_0_0_0_0__33 [label = "", weight = 100, style = invisible]
-P0_0__26 -> P0_0__27 [label = "", weight = 100]
+{rank = same; P__38 P0_0_0_0_0_0_0__31}
+P0_0_0_0_0_0_0__31 -> P__38 [label = "sk(d)", arrowhead = normal]
+P0_0_0_0_0_0_0__31 -> P0_0_0_0_0_0_0__32 [label = "", weight = 100]
 P__38 -> P__39 [label = "", weight = 100]
-{rank = same; P__39 P0_0__27 P0_1_0_0_0_0_0__33 P0_1_0_0_0_0_1__30}
-P0_1_0_0_0_0_1__30 -> P0_1_0_0_0_0_1__31 [label = "", weight = 100]
-P0_1_0_0_0_0_0__34 [label = "", style = invisible]
-P0_1_0_0_0_0_0__33 -> P0_1_0_0_0_0_0__34 [label = "", weight = 100, style = invisible]
-P0_0__27 -> P0_0__28 [label = "", weight = 100]
+{rank = same; P__39 P0_0_0_0_0_0_0__32}
+P0_0_0_0_0_0_0__32 -> P0_0_0_0_0_0_0__33 [label = "", weight = 100]
 P__39 -> P__40 [label = "", weight = 100]
-{rank = same; P__40 P0_0__28 P0_1_0_0_0_0_0__34 P0_1_0_0_0_0_1__31}
-P0_1_0_0_0_0_1__31 -> P0_1_0_0_0_0_1__32 [label = "", weight = 100]
+{rank = same; P__40 P0_0_0_0_0_0_0__33}
+P0_0_0_0_0_0_0__33 -> P0_0_0_0_0_0_0__34 [label = "", weight = 100]
 P__40 -> P__41 [label = "", weight = 100]
-{rank = same; P__41 P0_1_0_0_0_0_1__32}
-P0_1_0_0_0_0_1__32 -> P__41 [label = "aenc(nb_4429,pk(d))", arrowhead = normal]
-P0_1_0_0_0_0_1__32 -> P0_1_0_0_0_0_1__33 [label = "", weight = 100]
-P0_1_0_0_0_0_0__35 [label = "", style = invisible]
-P0_1_0_0_0_0_0__34 -> P0_1_0_0_0_0_0__35 [label = "", weight = 100, style = invisible]
-P0_0__28 -> P0_0__29 [label = "", weight = 100]
+{rank = same; P__41 P0_0_0_0_0_0_0__34}
+P0_0_0_0_0_0_0__34 -> P__41 [label = "ltk(d)", arrowhead = normal]
+P0_0_0_0_0_0_0__34 -> P0_0_0_0_0_0_0__35 [label = "", weight = 100]
 P__41 -> P__42 [label = "", weight = 100]
-{rank = same; P__42 P0_0__29 P0_1_0_0_0_0_0__35 P0_1_0_0_0_0_1__33}
+{rank = same; P__42 P0_0_0_0_0_0_0__35}
+P0_0_0_0_0_0_1__29 -> P0_0_0_0_0_0_1__30 [label = "", weight = 100]
+P0_0_0_0_0_0_1__30 [shape = record, label = "{ Beginning of process PB(a, b) | new nb_5586 | event startR(a,b)}"]
+P0_0_0_0_0_0_1__30 -> P0_0_0_0_0_0_1__31 [label = "", weight = 100]
+P0_0_0_0_0_0_1__31 -> P0_0_0_0_0_0_1__32 [label = "", weight = 100]
+P0_0_0_0_0_0_0__36 [label = "", style = invisible]
+P0_0_0_0_0_0_0__35 -> P0_0_0_0_0_0_0__36 [label = "", weight = 100, style = invisible]
+P__42 -> P__43 [label = "", weight = 100]
+{rank = same; P__43 P0_0_0_0_0_0_0__36 P0_0_0_0_0_0_1__32}
+P0_0_0_0_0_0_1__32 -> P0_0_0_0_0_0_1__33 [label = "", weight = 100]
+P__43 -> P__44 [label = "", weight = 100]
+{rank = same; P__44 P0_0_0_0_0_0_1__33}
+P0_0_0_0_0_0_1__33 -> P__44 [label = "a", arrowhead = normal, dir = back]
+P0_0_0_0_0_0_1__33 -> P0_0_0_0_0_0_1__34 [label = "", weight = 100]
+P0_0_0_0_0_0_0__37 [label = "", style = invisible]
+P0_0_0_0_0_0_0__36 -> P0_0_0_0_0_0_0__37 [label = "", weight = 100, style = invisible]
+P__44 -> P__45 [label = "", weight = 100]
+{rank = same; P__45 P0_0_0_0_0_0_0__37 P0_0_0_0_0_0_1__34}
+P0_0_0_0_0_0_1__34 -> P0_0_0_0_0_0_1__35 [label = "", weight = 100]
+P0_0_0_0_0_0_0__38 [label = "", style = invisible]
+P0_0_0_0_0_0_0__37 -> P0_0_0_0_0_0_0__38 [label = "", weight = 100, style = invisible]
+P__45 -> P__46 [label = "", weight = 100]
+{rank = same; P__46 P0_0_0_0_0_0_0__38 P0_0_0_0_0_0_1__35}
+P0_0_0_0_0_0_1__35 -> P0_0_0_0_0_0_1__36 [label = "", weight = 100]
+P__46 -> P__47 [label = "", weight = 100]
+{rank = same; P__47 P0_0_0_0_0_0_1__36}
+P0_0_0_0_0_0_1__36 -> P__47 [label = "aenc(nb_5586,pk(a))", arrowhead = normal]
+P0_0_0_0_0_0_1__36 -> P0_0_0_0_0_0_1__37 [label = "", weight = 100]
+P0_0_0_0_0_0_0__39 [label = "", style = invisible]
+P0_0_0_0_0_0_0__38 -> P0_0_0_0_0_0_0__39 [label = "", weight = 100, style = invisible]
+P__47 -> P__48 [label = "", weight = 100]
+{rank = same; P__48 P0_0_0_0_0_0_0__39 P0_0_0_0_0_0_1__37}
+P0_1_0_0_0_0_1__21 -> P0_1_0_0_0_0_1__22 [label = "", weight = 100]
+P0_1_0_0_0_0_0__24 [label = "", style = invisible]
+P0_1_0_0_0_0_0__23 -> P0_1_0_0_0_0_0__24 [label = "", weight = 100, style = invisible]
+P0_0_0_1__26 [label = "", style = invisible]
+P0_0_0_1__25 -> P0_0_0_1__26 [label = "", weight = 100, style = invisible]
+P0_0_0_0_0_0_1__37 -> P0_0_0_0_0_0_1__38 [label = "", weight = 100]
+P0_0_0_0_0_0_0__40 [label = "", style = invisible]
+P0_0_0_0_0_0_0__39 -> P0_0_0_0_0_0_0__40 [label = "", weight = 100, style = invisible]
+P__48 -> P__49 [label = "", weight = 100]
+{rank = same; P__49 P0_0_0_0_0_0_0__40 P0_0_0_0_0_0_1__38 P0_0_0_1__26 P0_1_0_0_0_0_0__24 P0_1_0_0_0_0_1__22}
+P0_1_0_0_0_0_1__22 -> P0_1_0_0_0_0_1__23 [label = "", weight = 100]
+P__49 -> P__50 [label = "", weight = 100]
+{rank = same; P__50 P0_1_0_0_0_0_1__23}
+P0_1_0_0_0_0_1__23 -> P__50 [label = "aenc(nb_5586,pk(a))", arrowhead = normal, dir = back]
+P0_1_0_0_0_0_1__23 -> P0_1_0_0_0_0_1__24 [label = "", weight = 100]
+P0_1_0_0_0_0_0__25 [label = "", style = invisible]
+P0_1_0_0_0_0_0__24 -> P0_1_0_0_0_0_0__25 [label = "", weight = 100, style = invisible]
+P0_0_0_1__27 [label = "", style = invisible]
+P0_0_0_1__26 -> P0_0_0_1__27 [label = "", weight = 100, style = invisible]
+P0_0_0_0_0_0_1__38 -> P0_0_0_0_0_0_1__39 [label = "", weight = 100]
+P0_0_0_0_0_0_0__41 [label = "", style = invisible]
+P0_0_0_0_0_0_0__40 -> P0_0_0_0_0_0_0__41 [label = "", weight = 100, style = invisible]
+P__50 -> P__51 [label = "", weight = 100]
+{rank = same; P__51 P0_0_0_0_0_0_0__41 P0_0_0_0_0_0_1__39 P0_0_0_1__27 P0_1_0_0_0_0_0__25 P0_1_0_0_0_0_1__24}
+P0_1_0_0_0_0_1__24 -> P0_1_0_0_0_0_1__25 [label = "", weight = 100]
+P0_1_0_0_0_0_0__26 [label = "", style = invisible]
+P0_1_0_0_0_0_0__25 -> P0_1_0_0_0_0_0__26 [label = "", weight = 100, style = invisible]
+P0_0_0_1__28 [label = "", style = invisible]
+P0_0_0_1__27 -> P0_0_0_1__28 [label = "", weight = 100, style = invisible]
+P0_0_0_0_0_0_1__39 -> P0_0_0_0_0_0_1__40 [label = "", weight = 100]
+P0_0_0_0_0_0_0__42 [label = "", style = invisible]
+P0_0_0_0_0_0_0__41 -> P0_0_0_0_0_0_0__42 [label = "", weight = 100, style = invisible]
+P__51 -> P__52 [label = "", weight = 100]
+{rank = same; P__52 P0_0_0_0_0_0_0__42 P0_0_0_0_0_0_1__40 P0_0_0_1__28 P0_1_0_0_0_0_0__26 P0_1_0_0_0_0_1__25}
+P0_1_0_0_0_0_1__25 -> P0_1_0_0_0_0_1__26 [label = "", weight = 100]
+P__52 -> P__53 [label = "", weight = 100]
+{rank = same; P__53 P0_1_0_0_0_0_1__26}
+P0_1_0_0_0_0_1__26 -> P__53 [label = "aenc(hash((adec(aenc(nb_5586,pk(a)),sk(a)),nb_5587,\nb,a)),pk(b))", arrowhead = normal]
+P0_1_0_0_0_0_1__26 -> P0_1_0_0_0_0_1__27 [label = "", weight = 100]
+P0_1_0_0_0_0_0__27 [label = "", style = invisible]
+P0_1_0_0_0_0_0__26 -> P0_1_0_0_0_0_0__27 [label = "", weight = 100, style = invisible]
+P0_0_0_1__29 [label = "", style = invisible]
+P0_0_0_1__28 -> P0_0_0_1__29 [label = "", weight = 100, style = invisible]
+P0_0_0_0_0_0_1__40 -> P0_0_0_0_0_0_1__41 [label = "", weight = 100]
+P0_0_0_0_0_0_0__43 [label = "", style = invisible]
+P0_0_0_0_0_0_0__42 -> P0_0_0_0_0_0_0__43 [label = "", weight = 100, style = invisible]
+P__53 -> P__54 [label = "", weight = 100]
+{rank = same; P__54 P0_0_0_0_0_0_0__43 P0_0_0_0_0_0_1__41 P0_0_0_1__29 P0_1_0_0_0_0_0__27 P0_1_0_0_0_0_1__27}
+P0_0_0_0_0_0_1__41 -> P0_0_0_0_0_0_1__42 [label = "", weight = 100]
+P0_0_0_0_0_0_0__44 [label = "", style = invisible]
+P0_0_0_0_0_0_0__43 -> P0_0_0_0_0_0_0__44 [label = "", weight = 100, style = invisible]
+P__54 -> P__55 [label = "", weight = 100]
+{rank = same; P__55 P0_0_0_0_0_0_0__44 P0_0_0_0_0_0_1__42}
+P0_0_0_0_0_0_1__42 -> P0_0_0_0_0_0_1__43 [label = "", weight = 100]
+P__55 -> P__56 [label = "", weight = 100]
+{rank = same; P__56 P0_0_0_0_0_0_1__43}
+P0_0_0_0_0_0_1__43 -> P__56 [label = "aenc(nb_5587,pk(b))", arrowhead = normal, dir = back]
+P0_0_0_0_0_0_1__43 -> P0_0_0_0_0_0_1__44 [label = "", weight = 100]
+P0_0_0_0_0_0_0__45 [label = "", style = invisible]
+P0_0_0_0_0_0_0__44 -> P0_0_0_0_0_0_0__45 [label = "", weight = 100, style = invisible]
+P__56 -> P__57 [label = "", weight = 100]
+{rank = same; P__57 P0_0_0_0_0_0_0__45 P0_0_0_0_0_0_1__44}
+P0_0_0_0_0_0_1__44 -> P0_0_0_0_0_0_1__45 [label = "", weight = 100]
+P0_0_0_0_0_0_0__46 [label = "", style = invisible]
+P0_0_0_0_0_0_0__45 -> P0_0_0_0_0_0_0__46 [label = "", weight = 100, style = invisible]
+P__57 -> P__58 [label = "", weight = 100]
+{rank = same; P__58 P0_0_0_0_0_0_0__46 P0_0_0_0_0_0_1__45}
+P0_0_0_0_0_0_1__45 -> P0_0_0_0_0_0_1__46 [label = "", weight = 100]
+P__58 -> P__59 [label = "", weight = 100]
+{rank = same; P__59 P0_0_0_0_0_0_1__46}
+P0_0_0_0_0_0_1__46 -> P__59 [label = "aenc(hash((adec(aenc(nb_5587,pk(b)),sk(b)),nb_5586,\na,b)),pk(a))", arrowhead = normal]
+P0_0_0_0_0_0_1__46 -> P0_0_0_0_0_0_1__47 [label = "", weight = 100]
+P0_0_0_0_0_0_0__47 [label = "", style = invisible]
+P0_0_0_0_0_0_0__46 -> P0_0_0_0_0_0_0__47 [label = "", weight = 100, style = invisible]
+P__59 -> P__60 [label = "", weight = 100]
+{rank = same; P__60 P0_0_0_0_0_0_0__47 P0_0_0_0_0_0_1__47}
+P0_0_0_0_0_0_1__47 -> P0_0_0_0_0_0_1__48 [label = "", weight = 100]
+P0_0_0_0_0_0_0__48 [label = "", style = invisible]
+P0_0_0_0_0_0_0__47 -> P0_0_0_0_0_0_0__48 [label = "", weight = 100, style = invisible]
+P__60 -> P__61 [label = "", weight = 100]
+{rank = same; P__61 P0_0_0_0_0_0_0__48 P0_0_0_0_0_0_1__48}
+P0_0_0_0_0_0_1__48 -> P0_0_0_0_0_0_1__49 [label = "", weight = 100]
+P__61 -> P__62 [label = "", weight = 100]
+{rank = same; P__62 P0_0_0_0_0_0_1__49}
+P0_0_0_0_0_0_1__49 -> P__62 [label = "aenc(hash((nb_5586,nb_5587,b,a)),pk(b))", arrowhead = normal, dir = back]
+P0_0_0_0_0_0_1__49 -> P0_0_0_0_0_0_1__50 [label = "", weight = 100]
+P0_0_0_0_0_0_0__49 [label = "", style = invisible]
+P0_0_0_0_0_0_0__48 -> P0_0_0_0_0_0_0__49 [label = "", weight = 100, style = invisible]
+P__62 -> P__63 [label = "", weight = 100]
+{rank = same; P__63 P0_0_0_0_0_0_0__49 P0_0_0_0_0_0_1__50}
+P0_0_0_0_0_0_1__50 -> P0_0_0_0_0_0_1__51 [label = "", weight = 100]
+P0_0_0_0_0_0_1__51 [shape = record, label = "{ new r_5876}"]
+P0_0_0_0_0_0_1__51 -> P0_0_0_0_0_0_1__52 [label = "", weight = 100]
+P0_0_0_0_0_0_1__52 -> P0_0_0_0_0_0_1__53 [label = "", weight = 100]
+P0_0_0_0_0_0_0__50 [label = "", style = invisible]
+P0_0_0_0_0_0_0__49 -> P0_0_0_0_0_0_0__50 [label = "", weight = 100, style = invisible]
+P__63 -> P__64 [label = "", weight = 100]
+{rank = same; P__64 P0_0_0_0_0_0_0__50 P0_0_0_0_0_0_1__53}
+P0_0_0_0_0_0_1__53 -> P0_0_0_0_0_0_1__54 [label = "", weight = 100]
+P__64 -> P__65 [label = "", weight = 100]
+{rank = same; P__65 P0_0_0_0_0_0_1__54}
+P0_0_0_0_0_0_1__54 -> P__65 [label = "enc(r_5876,ltk((adec(aenc(nb_5587,pk(b)),sk(b)),\nnb_5586)))", arrowhead = normal]
+P0_0_0_0_0_0_1__54 -> P0_0_0_0_0_0_1__55 [label = "", weight = 100]
+P0_0_0_0_0_0_0__51 [label = "", style = invisible]
+P0_0_0_0_0_0_0__50 -> P0_0_0_0_0_0_0__51 [label = "", weight = 100, style = invisible]
+P__65 -> P__66 [label = "", weight = 100]
+{rank = same; P__66 P0_0_0_0_0_0_0__51 P0_0_0_0_0_0_1__55}
+P0_0_0_0_0_0_1__55 -> P0_0_0_0_0_0_1__56 [label = "", weight = 100]
+P0_0_0_0_0_0_1__56 [shape = record, label = "{ event acceptR(a,b,nb_5586) | event acceptR(a,b,nb_5586) is the goal }"]
+P0_0_0_0_0_0_1__56 -> P0_0_0_0_0_0_1__57 [label = "", weight = 100]
 }

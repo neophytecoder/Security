@@ -52,7 +52,7 @@ let PA(ia:id, ra:id) =
 		out(c, nAkB);
 	in(c, enchNaNbAB:bitstring);
 	let hNaNbAB = hash((na, nonceB, ia, ra)) in
-	let hNbNaAB = hash((nonceB, na, ra, ia)) in
+	let hNbNaAB = hash((ra, ia, nonceB, na)) in
 	let enchNbNaBA = aenc(hNbNaAB, pk(ra)) in
 	if (hNaNbAB = adec(enchNaNbAB,sk(ia))) then 
 		out(c, enchNbNaBA);
