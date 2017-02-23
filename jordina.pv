@@ -1,0 +1,89 @@
+free c:channel.  (* declaring a free channel name *)
+
+
+type id.
+type pkey.
+type skey.
+type symk.
+
+fun h(bitstring):bitstring.
+
+free a, b, d: id. (* declaring identities as free names*)
+event reach.
+event startI(id,id,bitstring).
+event acceptI(id,id).
+event startR(id,id).
+event acceptR(id,id,bitstring).
+
+(* Public key cryptography *)
+
+fun pk(id):pkey.			(* public key*)
+fun aenc(bitstring, pkey):bitstring. 	(* asymmetric encryption *)
+fun adec(bitstring, skey):bitstring.	(* asymmetric decryption *)
+
+fun sk(id):skey [private]. (* sk is a private function, i.e. cannot be applied by the adversary *)
+
+equation forall x:bitstring, y:id; adec(aenc(x,pk(y)),sk(y)) = x.
+
+(* Symmetric key cryptography *)
+
+fun syk(id,id):symk [private].			(* secret key*)
+fun senc(bitstring, symk):bitstring. 	(* symmetric encryption *)
+fun sdec(bitstring, symk):bitstring.	(* symmetric decryption *)
+fun bitstring2symk(bitstring):symk [typeConverter].
+
+equation forall x:bitstring, y:symk; sdec(senc(x,y),y) = x.
+
+(* queries should be added here *)
+(*query event(reach).*)
+(*query attacker((new na, new nb)).*)
+(*query attacker(new q).*)
+(*query attacker(new r).*)
+query x:bitstring; inj-event(acceptR(a,b,x)) ==> inj-event(startI(a,b,x)).
+(*query event(acceptI(a,b)) ==> event(startI(a,b)).*)
+
+(* initiator process *)
+let Pi(i1:id, r1:id) =
+new na:bitstring;
+event startI(i1,r1,na);
+out(c, i1);
+in(c, x:bitstring);
+let (nr:bitstring) = adec(x, sk(i1)) in
+out(c, aenc(na,pk(r1)));
+in(c, y:bitstring);
+if (h((na,nr,i1,r1))) = adec(y, sk(i1)) then
+event acceptI(i1,r1);
+out(c, aenc( (h((nr,na,r1,i1))) , pk(r1)));
+if(i1=d && r1=d) then
+(
+new s:bitstring;
+out(c, senc(s,bitstring2symk( (na,nr) )))
+) else (
+new q:bitstring;
+out(c, senc(q,bitstring2symk( (na,nr) )))
+).
+
+(* responder process *)
+let Pr (i2:id, r2:id )=
+(* fill in responder process *)
+event startR(i2,r2);
+in(c, x:bitstring);
+(*let(=i2) = adec(x, sk(r2)) in*)
+new nb:bitstring;
+out(c, aenc( (nb) , pk(i2)));
+in(c, x:bitstring);
+let(nr:bitstring) = adec(x, sk(r2)) in
+out(c, aenc( (h((nr,nb,i2,r2))) , pk(i2)));
+in(c, y:bitstring);
+if (h((nb,nr,r2,i2))) = adec(y, sk(r2)) then
+event acceptR(i2,r2,nb);
+new r:bitstring;
+out(c, senc(r,bitstring2symk((nb,nr))));
+event reach.
+
+(*last let equivalent to: if adec(x,sk(r2))=nb then event reach./0.*)
+
+
+
+(* main process *)
+process ! in(c,i1:id); in(c,r1:id); Pi(i1,r1) | ! in(c,i2:id); in(c,r2:id); Pr(i2,r2) | out(c,sk(d))

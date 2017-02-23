@@ -1,0 +1,69 @@
+
+free c:channel.  (* declaring a free channel name *)
+
+type id.
+type key.
+
+
+free a, b, d: id. (* declaring identities as free names*)
+
+(* Public key cryptography *)
+
+fun ltk(id):key [private].		(* public key*)
+fun enc(bitstring, key):bitstring. 	(* symmetric encryption *)
+fun dec(bitstring, key):bitstring.	(* symmetric decryption *)
+
+equation forall x:bitstring, y:key; dec(enc(x,y),y) = x.
+
+event reach.
+
+
+(* queries should be added here *)
+(*query event(reach()). *)
+query attacker(new kabh).
+
+(* initiator process *)
+let PA(ia:id,ra:id) = 
+       	 new na:bitstring;
+       	 out(c, (ia,ra,na)); (* send (A,B,Na) *)
+	 in (c, (z1:bitstring, z2:bitstring, znb:bitstring));
+	 let (=ia, =ra, =na, zk:key) = dec(z1,ltk(ia)) in
+	 if dec(z2,zk) = na then
+	 out(c,enc(znb,zk)).
+	 
+
+(* responder process *)
+let PB (rb:id)=
+        in(c, (y1:bitstring, y2:bitstring)); 
+	let (ya:id,=rb,yna:bitstring,yk:key) = dec(y2,ltk(rb)) in
+	new nb:bitstring;
+	out(c, (y1, enc(yna,yk), nb));
+	in(c,y3:bitstring);
+	if dec(y3,yk) = nb then
+	event reach().	
+
+(* dummy server *)
+let S(k:key) =
+    in(c, (xa:id,xb:id,xna:bitstring));
+    out(c, ( enc( (xa,xb,xna,k),ltk(xa) ), enc( (xa,xb,xna,k),ltk(xb) ) )).
+
+(* honest server *)
+let Sh(k:key) =
+    in(c, (xa:id,xb:id,xna:bitstring)); (* receive A,B,Na *)
+    if (xa = a && xb = b) then
+    out(c, ( enc( (xa,xb,xna,k),ltk(xa) ), enc( (xa,xb,xna,k),ltk(xb) ) )). (* send (A,B,Na,Kab) &   *)
+
+(* dishonest server *)
+let Sc(k:key) =
+    in(c, (xa:id,xb:id,xna:bitstring));
+    out(c, ( enc( (xa,xb,xna,k),ltk(xa) ), enc( (xa,xb,xna,k),ltk(xb)
+    ) ));
+    out(c, k).
+
+
+(* main process *)
+process  in(c, xb:id); !PA(a,xb) | ! PB(b) | out(c, ltk(d)) |
+	 ! new kabh:key; Sh(kabh) | (* server for only honest parties *) (* Kabh honest key *)
+	 ! new kab:key; S(kab) | (* server for any participants *)
+	 ! new kabc:key; Sc(kabc) (* server that provides keys that
+	 may be corrupted *)
