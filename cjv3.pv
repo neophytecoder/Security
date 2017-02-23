@@ -86,6 +86,6 @@ let PB(ib:id, rb:id)=
 	).
 
 process ! in(c,i1:id); ! in(c,r1:id);  PA(a, r1) | 
-		! in(c,i2:id); ! in(c,r2:id);  PB(i2, r2) | 
+		! in(c,i2:id); ! in(c,r2:id);  PB(i2, b) | 
 		out(c,sk(d)); out(c,ltk(d)) 
 		
