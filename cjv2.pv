@@ -37,8 +37,8 @@ event startR(id,id).
 event acceptR(id,id,bitstring).
 
 (*query event(reach()).*)
-(*query attacker((new na, new nb)).*)
-query attacker( new q ).
+query attacker((new na, new nb)).
+(*query attacker( new q ).*)
 (*query x:bitstring; inj-event(acceptR(a,b,x)) ==> inj-event(startI(a,b,x)).*)
 
 
