@@ -1,0 +1,86 @@
+free c:channel.  (* declaring a free channel name *)
+
+type id.
+type symkey.
+type pkey.
+type skey.
+
+free a, b, s, d:id.
+
+
+(* Symetric key cryptography *)
+fun ltk(id):symkey [private].		(* public key*)
+fun enc(bitstring, symkey):bitstring. 	(* symmetric encryption *)
+fun dec(bitstring, symkey):bitstring.	(* symmetric decryption *)
+equation forall x:bitstring, y:id; dec(enc(x,ltk(y)),ltk(y)) = x.
+
+fun symkey2bitstring(symkey):bitstring [typeConverter].
+fun bitstring2symk(bitstring):symkey [typeConverter].
+fun id2bitstring(id):bitstring [typeConverter].
+fun bitstring2id(bitstring):id [typeConverter].
+fun bitstring2symkey(bitstring):symkey [typeConverter].
+
+(* hash function *)
+fun hash(bitstring):bitstring.
+
+(* Asymmetric key cryptography *)
+fun pk(id):pkey.			(* public key*)
+fun sk(id):skey [private]. (* sk is a private function, i.e. cannot be applied by the adversary *)
+fun aenc(bitstring, pkey):bitstring. 	(* asymmetric encryption *)
+fun adec(bitstring, skey):bitstring.	(* asymmetric decryption *)
+equation forall x:bitstring, y:id; adec(aenc(x,pk(y)),sk(y)) = x.
+
+event reach.
+event startI(id,id,bitstring).
+event acceptI(id,id).
+event startR(id,id).
+event acceptR(id,id,bitstring).
+
+(*query event(reach()).*)
+query attacker((new na, new nb)).
+(*query attacker( new q ).*)
+(*query x:bitstring; inj-event(acceptR(a,b,x)) ==> inj-event(startI(a,b,x)).*)
+
+
+let PA(ia:id, ra:id) =
+	new na:bitstring;
+	event startI(ia, ra, na);
+	out(c, ia);
+	in(c, nBkA:bitstring);
+	let nonceB = adec(nBkA, sk(ia)) in
+	let nAkB = aenc(na, pk(ra)) in
+		out(c, nAkB);
+	in(c, enchNaNbAB:bitstring);
+	let hNaNbAB = hash((na, nonceB, ia, ra)) in
+	let hNbNaAB = hash((nonceB, na, ra, ia)) in
+	let enchNbNaBA = aenc(hNbNaAB, pk(ra)) in
+	if (hNaNbAB = adec(enchNaNbAB,sk(ia))) then 
+		out(c, enchNbNaBA);
+	if( not(ia=d) || not(ra=d) ) then  (
+		new q:bitstring;
+		out(c, enc(q, ltk( bitstring2id((na, nonceB)) ) ))
+	).
+
+let PB(ib:id, rb:id)=
+	new nb:bitstring;
+	event startR(ib, rb);
+	in(c, =ib);
+	let nBkA = aenc(nb, pk(ib)) in
+		out(c, nBkA);
+	in(c, nAkB:bitstring);
+	let nonceA = adec(nAkB, sk(rb)) in
+	let hNaNbAB = hash((nonceA, nb, ib, rb)) in
+	let enchNaNbAB = aenc(hNaNbAB, pk(ib)) in 
+		out(c, enchNaNbAB);
+	in(c, enchNbNaBA:bitstring);
+	let hNbNaBA = adec(enchNbNaBA, sk(rb)) in 
+	if (hNbNaBA = hash( (nb, nonceA, rb, ib) ) && ( not(ib=d) || not(rb=d) ) ) then (
+		new r:bitstring;
+		out(c, enc(r, ltk( bitstring2id( (nonceA, nb)) ) ));
+		event reach
+	).
+
+process ! in(c,i1:id); ! in(c,r1:id);  PA(a, r1) | 
+		! in(c,i2:id); ! in(c,r2:id);  PB(i2, r2) | 
+		out(c,sk(d)); out(c,ltk(d)) 
+		

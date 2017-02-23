@@ -39,6 +39,7 @@ query event(reach()).
 (* initiator process *)
 let PA(ia:id, ra:id) =
 	new na:bitstring;
+	event startI(ia, ra, na);
 	out(c, aenc( (ia, hash(na)) ,pk(ra) ) );
 	in(c, msg1:bitstring);
 	let (idb:id, hnb:bitstring, nbkbs:bitstring) = adec(msg1, sk(ia))in 
@@ -47,7 +48,8 @@ let PA(ia:id, ra:id) =
 	let (kab:symkey) = bitstring2symk(dec(kabkas, ltk(ia))) in
 	let (=na) = dec(nakab, kab) in 
 	let (hnbkab:bitstring) = enc(hnb, kab) in
-		out(c, hnbkab).
+		out(c, hnbkab);
+	event acceptR
 		(*
 	if(ia=d && ra=d) then
 	(
