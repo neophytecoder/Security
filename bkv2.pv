@@ -95,5 +95,4 @@ let Sd(idS:id, k:symkey) =
 process ! in(c,r1:id);  PA(a,r1, s) | 
 		! in(c,i2:id);  PB(i2,b, s) | 
 		! new kabh:symkey; Sh(s, kabh) |
-		! new kabdh:symkey; ! in(c,s3:id); Sd(s3, kabdh) |
 		out(c,sk(d))
