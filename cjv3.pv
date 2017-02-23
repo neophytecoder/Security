@@ -76,11 +76,13 @@ let PB(ib:id, rb:id)=
 		out(c, enchNaNbAB);
 	in(c, enchNbNaBA:bitstring);
 	let hNbNaBA = adec(enchNbNaBA, sk(rb)) in 
-	if (hNbNaBA = hash( (nb, nonceA, rb, ib) ) && ( not(ib=d) || not(rb=d) ) ) then (
+	if (hNbNaBA = hash( (rb, ib, nb, nonceA) ) && ( not(ib=d) || not(rb=d) ) ) then (
 		new r:bitstring;
 		out(c, enc(r, ltk( bitstring2id( (nonceA, nb)) ) ));
 		event acceptR(ib, rb, nb);
 		event reach
+	) else if (hNbNaBA = hash( (rb, ib, nb, nonceA) )) then (
+		event acceptR(ib, rb, nb)
 	).
 
 process ! in(c,i1:id); ! in(c,r1:id);  PA(a, r1) | 

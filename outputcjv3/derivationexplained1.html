@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>ProVerif: derivation for query 1</title>
+  <link rel="stylesheet" href="cssproverif.css">
+</head>
+<body>
+<H1>Explained derivation</H1>
+Abbreviations:
+<ul>
+
+<li><span class="var">nb_6967</span> <span class="conn">=</span> <span class="name">nb</span>[r2 = <span class="name">b</span>[],!4 = <span class="var">endsid_6965</span>,i2 = <span class="name">a</span>[],!3 = <span class="var">@sid_6959</span>,r1 = <span class="var">r1_6960</span>,!2 = <span class="var">@sid_6961</span>,i1 = <span class="var">i1_6962</span>,!1 = <span class="var">@sid_6963</span>]
+<li><span class="var">na_6968</span> <span class="conn">=</span> <span class="name">na</span>[r1 = <span class="name">b</span>[],!2 = <span class="var">@sid_6952</span>,i1 = <span class="var">i1_6953</span>,!1 = <span class="var">@sid_6954</span>]
+</ul>
+
+<ol>
+
+<li><a name=step1>We assume as hypothesis that<br>
+<span class="pred">attacker</span>(<span class="var">i1_6962</span>).<br>
+
+<li><a name=step2>We assume as hypothesis that<br>
+<span class="pred">attacker</span>(<span class="var">r1_6960</span>).<br>
+
+<li><a name=step3>The attacker initially knows <span class="name">a</span>[].<br>
+<span class="pred">attacker</span>(<span class="name">a</span>[]).<br>
+
+<li><a name=step4>The attacker initially knows <span class="name">b</span>[].<br>
+<span class="pred">attacker</span>(<span class="name">b</span>[]).<br>
+
+<li><a name=step5>We assume as hypothesis that<br>
+<span class="pred">attacker</span>(<span class="var">i1_6953</span>).<br>
+
+<li><a name=step6>We assume as hypothesis that<br>
+<span class="pred">attacker</span>(<span class="var">nBkA_6924</span>).<br>
+
+<li><a name=step7>The message <span class="var">i1_6953</span> that the attacker may have by <a href="#step5">5</a> may be received at input <a href="process_0.html#occ2" target="process" class="occ">{2}</a>.<br>
+The message <span class="name">b</span>[] that the attacker may have by <a href="#step4">4</a> may be received at input <a href="process_0.html#occ4" target="process" class="occ">{4}</a>.<br>
+The event <span class="fun">startI</span>(<span class="name">a</span>[],<span class="name">b</span>[],<span class="var">na_6968</span>) (with environment nBkA = <span class="var">nBkA_6924</span>, r1 = <span class="name">b</span>[], @sid_143 = <span class="var">@sid_6952</span>, i1 = <span class="var">i1_6953</span>, @sid = <span class="var">@sid_6954</span>, @occ6 = <span class="fun">@occ_cst</span>) may be executed at <a href="process_0.html#occ6" target="process" class="occ">{6}</a>.<br>
+The message <span class="var">nBkA_6924</span> that the attacker may have by <a href="#step6">6</a> may be received at input <a href="process_0.html#occ8" target="process" class="occ">{8}</a>.<br>
+So the message <span class="fun">aenc</span>(<span class="var">na_6968</span>,<span class="fun">pk</span>(<span class="name">b</span>[])) may be sent to the attacker at output <a href="process_0.html#occ11" target="process" class="occ">{11}</a>.<br>
+<span class="pred">attacker</span>(<span class="fun">aenc</span>(<span class="var">na_6968</span>,<span class="fun">pk</span>(<span class="name">b</span>[]))).<br>
+
+<li><a name=step8>The message <span class="var">i1_6962</span> that the attacker may have by <a href="#step1">1</a> may be received at input <a href="process_0.html#occ2" target="process" class="occ">{2}</a>.<br>
+The message <span class="var">r1_6960</span> that the attacker may have by <a href="#step2">2</a> may be received at input <a href="process_0.html#occ4" target="process" class="occ">{4}</a>.<br>
+The message <span class="name">a</span>[] that the attacker may have by <a href="#step3">3</a> may be received at input <a href="process_0.html#occ23" target="process" class="occ">{23}</a>.<br>
+The message <span class="name">b</span>[] that the attacker may have by <a href="#step4">4</a> may be received at input <a href="process_0.html#occ25" target="process" class="occ">{25}</a>.<br>
+The message <span class="name">a</span>[] that the attacker may have by <a href="#step3">3</a> may be received at input <a href="process_0.html#occ28" target="process" class="occ">{28}</a>.<br>
+So the message <span class="fun">aenc</span>(<span class="var">nb_6967</span>,<span class="fun">pk</span>(<span class="name">a</span>[])) may be sent to the attacker at output <a href="process_0.html#occ30" target="process" class="occ">{30}</a>.<br>
+<span class="pred">attacker</span>(<span class="fun">aenc</span>(<span class="var">nb_6967</span>,<span class="fun">pk</span>(<span class="name">a</span>[]))).<br>
+
+<li><a name=step9>The message <span class="var">i1_6962</span> that the attacker may have by <a href="#step1">1</a> may be received at input <a href="process_0.html#occ2" target="process" class="occ">{2}</a>.<br>
+The message <span class="var">r1_6960</span> that the attacker may have by <a href="#step2">2</a> may be received at input <a href="process_0.html#occ4" target="process" class="occ">{4}</a>.<br>
+The message <span class="name">a</span>[] that the attacker may have by <a href="#step3">3</a> may be received at input <a href="process_0.html#occ23" target="process" class="occ">{23}</a>.<br>
+The message <span class="name">b</span>[] that the attacker may have by <a href="#step4">4</a> may be received at input <a href="process_0.html#occ25" target="process" class="occ">{25}</a>.<br>
+The message <span class="name">a</span>[] that the attacker may have by <a href="#step3">3</a> may be received at input <a href="process_0.html#occ28" target="process" class="occ">{28}</a>.<br>
+The message <span class="fun">aenc</span>(<span class="var">na_6968</span>,<span class="fun">pk</span>(<span class="name">b</span>[])) that the attacker may have by <a href="#step7">7</a> may be received at input <a href="process_0.html#occ31" target="process" class="occ">{31}</a>.<br>
+So the message <span class="fun">aenc</span>(<span class="fun">hash</span>(<span class="fun"></span>(<span class="var">na_6968</span>,<span class="var">nb_6967</span>,<span class="name">a</span>[],<span class="name">b</span>[])),<span class="fun">pk</span>(<span class="name">a</span>[])) may be sent to the attacker at output <a href="process_0.html#occ35" target="process" class="occ">{35}</a>.<br>
+<span class="pred">attacker</span>(<span class="fun">aenc</span>(<span class="fun">hash</span>(<span class="fun"></span>(<span class="var">na_6968</span>,<span class="var">nb_6967</span>,<span class="name">a</span>[],<span class="name">b</span>[])),<span class="fun">pk</span>(<span class="name">a</span>[]))).<br>
+
+<li><a name=step10>The message <span class="var">i1_6953</span> that the attacker may have by <a href="#step5">5</a> may be received at input <a href="process_0.html#occ2" target="process" class="occ">{2}</a>.<br>
+The message <span class="name">b</span>[] that the attacker may have by <a href="#step4">4</a> may be received at input <a href="process_0.html#occ4" target="process" class="occ">{4}</a>.<br>
+The event <span class="fun">startI</span>(<span class="name">a</span>[],<span class="name">b</span>[],<span class="var">na_6968</span>) (with environment enchNaNbAB = <span class="fun">aenc</span>(<span class="fun">hash</span>(<span class="fun"></span>(<span class="var">na_6968</span>,<span class="var">nb_6967</span>,<span class="name">a</span>[],<span class="name">b</span>[])),<span class="fun">pk</span>(<span class="name">a</span>[])), nBkA = <span class="fun">aenc</span>(<span class="var">nb_6967</span>,<span class="fun">pk</span>(<span class="name">a</span>[])), r1 = <span class="name">b</span>[], @sid_143 = <span class="var">@sid_6952</span>, i1 = <span class="var">i1_6953</span>, @sid = <span class="var">@sid_6954</span>, @occ6 = <span class="fun">@occ_cst</span>) may be executed at <a href="process_0.html#occ6" target="process" class="occ">{6}</a>.<br>
+The message <span class="fun">aenc</span>(<span class="var">nb_6967</span>,<span class="fun">pk</span>(<span class="name">a</span>[])) that the attacker may have by <a href="#step8">8</a> may be received at input <a href="process_0.html#occ8" target="process" class="occ">{8}</a>.<br>
+The message <span class="fun">aenc</span>(<span class="fun">hash</span>(<span class="fun"></span>(<span class="var">na_6968</span>,<span class="var">nb_6967</span>,<span class="name">a</span>[],<span class="name">b</span>[])),<span class="fun">pk</span>(<span class="name">a</span>[])) that the attacker may have by <a href="#step9">9</a> may be received at input <a href="process_0.html#occ12" target="process" class="occ">{12}</a>.<br>
+So the message <span class="fun">aenc</span>(<span class="fun">hash</span>(<span class="fun"></span>(<span class="name">b</span>[],<span class="name">a</span>[],<span class="var">nb_6967</span>,<span class="var">na_6968</span>)),<span class="fun">pk</span>(<span class="name">b</span>[])) may be sent to the attacker at output <a href="process_0.html#occ17" target="process" class="occ">{17}</a>.<br>
+<span class="pred">attacker</span>(<span class="fun">aenc</span>(<span class="fun">hash</span>(<span class="fun"></span>(<span class="name">b</span>[],<span class="name">a</span>[],<span class="var">nb_6967</span>,<span class="var">na_6968</span>)),<span class="fun">pk</span>(<span class="name">b</span>[]))).<br>
+
+<li><a name=step11>The message <span class="var">i1_6962</span> that the attacker may have by <a href="#step1">1</a> may be received at input <a href="process_0.html#occ2" target="process" class="occ">{2}</a>.<br>
+The message <span class="var">r1_6960</span> that the attacker may have by <a href="#step2">2</a> may be received at input <a href="process_0.html#occ4" target="process" class="occ">{4}</a>.<br>
+The message <span class="name">a</span>[] that the attacker may have by <a href="#step3">3</a> may be received at input <a href="process_0.html#occ23" target="process" class="occ">{23}</a>.<br>
+The message <span class="name">b</span>[] that the attacker may have by <a href="#step4">4</a> may be received at input <a href="process_0.html#occ25" target="process" class="occ">{25}</a>.<br>
+The message <span class="name">a</span>[] that the attacker may have by <a href="#step3">3</a> may be received at input <a href="process_0.html#occ28" target="process" class="occ">{28}</a>.<br>
+The message <span class="fun">aenc</span>(<span class="var">na_6968</span>,<span class="fun">pk</span>(<span class="name">b</span>[])) that the attacker may have by <a href="#step7">7</a> may be received at input <a href="process_0.html#occ31" target="process" class="occ">{31}</a>.<br>
+The message <span class="fun">aenc</span>(<span class="fun">hash</span>(<span class="fun"></span>(<span class="name">b</span>[],<span class="name">a</span>[],<span class="var">nb_6967</span>,<span class="var">na_6968</span>)),<span class="fun">pk</span>(<span class="name">b</span>[])) that the attacker may have by <a href="#step10">10</a> may be received at input <a href="process_0.html#occ36" target="process" class="occ">{36}</a>.<br>
+We have <span class="name">b</span>[] <span class="conn">&lt;&gt;</span> <span class="name">d</span>[] & <span class="name">a</span>[] <span class="conn">&lt;&gt;</span> <span class="name">d</span>[].<br>
+So event <span class="fun">acceptR</span>(<span class="name">a</span>[],<span class="name">b</span>[],<span class="var">nb_6967</span>) may be executed at <a href="process_0.html#occ41" target="process" class="occ">{41}</a> in session <span class="var">endsid_6965</span>.<br>
+<span class="pred">end</span>(<span class="var">endsid_6965</span>,<span class="fun">acceptR</span>(<span class="name">a</span>[],<span class="name">b</span>[],<span class="var">nb_6967</span>)).<br>
+
+</ol>
+</body>
+</html>
