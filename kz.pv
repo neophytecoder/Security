@@ -34,64 +34,58 @@ event acceptI(id,id).
 event startR(id,id).
 event acceptR(id,id,bitstring).
 
-query event(reach()).
+(*query event(reach()).*)
+query x:bitstring; inj-event(acceptR(a,b,x)) ==> inj-event(startI(a,b,x)).
+(*query attacker((new q, new r)).*)
 
 (* initiator process *)
 let PA(ia:id, ra:id) =
-	new na:bitstring;
+	new na:bitstring;	(* generate nonce na *)
 	event startI(ia, ra, na);
-	out(c, aenc( (ia, hash(na)) ,pk(ra) ) );
-	in(c, msg1:bitstring);
+	out(c, aenc( (ia, hash(na)) ,pk(ra) ) );	(* a --> b: {<A, hash(Na)>}pk(B) *)
+	in(c, msg1:bitstring);						(* b --> a {〈B, 〈hash(Nb), {Nb}Kbs〉〉} pub(A) *)
 	let (idb:id, hnb:bitstring, nbkbs:bitstring) = adec(msg1, sk(ia))in 
-		out(c, (ia,enc((ra,na,nbkbs),ltk(ia))) );
-	in(c, (kabkas:bitstring, nakab:bitstring));
+		out(c, (ia,enc((ra,na,nbkbs),ltk(ia))) );  	(* a --> s: < A, { 〈B, 〈Na,{Nb}Kbs〉〉}pk(Ka) >  *)
+	in(c, (kabkas:bitstring, nakab:bitstring));		(* b --> a: 〈{Kab} Kas, {Na} Kab〉 *)
 	let (kab:symkey) = bitstring2symk(dec(kabkas, ltk(ia))) in
 	let (=na) = dec(nakab, kab) in 
 	let (hnbkab:bitstring) = enc(hnb, kab) in
-		out(c, hnbkab);
-	event acceptR
-		(*
-	if(ia=d && ra=d) then
-	(
-		new s:bitstring;
-		out(c, senc(s,bitstring2symk( (na,nr) )))
-	) else (
-		new q:bitstring;
-		out(c, senc(q,bitstring2symk( (na,nr) )))
-	).*)
+		out(c, hnbkab);			(* a --> b: {hash(Nb)} Kab *)
+	event acceptI(ia, ra);
+	if( not(ia=d) || not(ra=d) ) then  (  (* the attacker does not communicate with itself*)
+		new q:bitstring;					(*check secrecy of kab*)
+		out(c, enc(q,  kab))
+	).
 
 
 let PB(ib:id, rb:id) =
-	in(c, msg1:bitstring);
+	in(c, msg1:bitstring); 		(* a --> b: {〈A, hash(Na)〉} pk(B) *)
 	let (ida:id, hna:bitstring) = adec(msg1, sk(rb)) 
 		in new nb:bitstring;
-	out(c, aenc( (rb, hash(nb), enc(nb, ltk(rb)) ) , pk(ib) ) );
-	in(c, (msg2:bitstring, msg3:bitstring));
+	out(c, aenc( (rb, hash(nb), enc(nb, ltk(rb)) ) , pk(ib) ) ); 		(* b --> a: {〈B, 〈hash(Nb), {Nb}Kbs〉〉} pk(A) *)
+	in(c, (msg2:bitstring, msg3:bitstring));							(* s -> b: 〈{〈Na, 〈Nb, Kab〉〉)} Kbs, {Kab} Kas〉 *)
 	let (na:id, =nb, k:bitstring) = dec(msg2, ltk(rb)) in 
 	let (kab:symkey) = bitstring2symk(k) in
 	let msg4:bitstring = enc(id2bitstring(na), kab) in
-	out(c, (msg3,msg4));
-	in(c, hnbkab:bitstring);
-	if hash(nb) = dec(hnbkab, kab) then
-		event reach().
+	out(c, (msg3,msg4));											(* b --> a:  〈{Kab} Kas, {Na}Kab〉*)
+	in(c, hnbkab:bitstring);										(* a --> b: {hash(Nb)} Kab *)
+	if ( hash(nb) = dec(hnbkab, kab) 						(*check that B receives a message from A the same as hash(Nb). *)
+		&& ( not(ib=d) || not(rb=d) ) ) then (				(*check that the attacker does not communicate with itself. *)
+		event acceptR(ib, rb, nb);
+		new r:bitstring;
+		out(c, enc(r,  kab))				(* check secrecy of Kab *)
+	).
+
 
 (* honest server *)
 let Sh(k:symkey) =
-	in(c, (ida:id, msg1:bitstring) );
+	in(c, (ida:id, msg1:bitstring) );		(* a --> s: {〈A, 〈B, 〈Na,{Nb}Kbs〉〉〉} Kas *)
 	let (idb:id, na:bitstring, nbkbs:bitstring) = dec(msg1, ltk(ida)) in
 	let nb = dec(nbkbs, ltk(idb)) in 
 	let pair1 = enc((na,nb, k),ltk(idb)) in
 	let pair2 = enc(symkey2bitstring(k), ltk(ida)) in
-	out(c, (pair1,pair2)).
-
-(* honest server *)
-let Sh(k:symkey) =
-	in(c, (ida:id, msg1:bitstring) );
-	let (idb:id, na:bitstring, nbkbs:bitstring) = dec(msg1, ltk(ida)) in
-	let nb = dec(nbkbs, ltk(idb)) in 
-	let pair1 = enc((na,nb, k),ltk(idb)) in
-	let pair2 = enc(symkey2bitstring(k), ltk(ida)) in
-	out(c, (pair1,pair2));
+	out(c, (pair1,pair2)).	(* s --> b: 〈{〈Na, 〈Nb, Kab〉〉)} Kbs, {Kab} Kas〉
+*)
 
 
 (* dishonest server *)
@@ -102,12 +96,13 @@ let Sc(k:symkey) =
 	let pair1 = enc((na,nb, k),ltk(idb)) in
 	let pair2 = enc(symkey2bitstring(k), ltk(ida)) in
 	out(c, (pair1,pair2));
-	out(c, k).
+	out(c, k); out(c, na); out(c, nb); 	(* leaks Kab and nonce *)
 
 
+(* main process *)
 process ! in(c,i1:id); in(c,r1:id); PA(i1,r1) | 
 		! in(c,i2:id); in(c,r2:id); PB(i2,r2) | 
-		out(c,sk(d)); out(c, ltk(d)) |
-		! new kabh:symkey; Sh(kabh) |
-		! new kabc:symkey; Sc(kabc)
+		out(c,sk(d)); out(c, ltk(d)) |      (* the attacker leaks its key *)
+		! new kabh:symkey; Sh(kabh) | 		(* generate key Kabh for honest server *)
+		! new kabc:symkey; Sc(kabc)			(* generate key Kabc for dishonest server *)
 

@@ -10,9 +10,10 @@ free a, b, s, d:id.
 
 (* Symetric key cryptography *)
 fun ltk(id):symkey [private].		(* public key*)
+fun ltkpair(id,id):symkey [private].		(* public key*)
 fun enc(bitstring, symkey):bitstring. 	(* symmetric encryption *)
 fun dec(bitstring, symkey):bitstring.	(* symmetric decryption *)
-equation forall x:bitstring, y:id; dec(enc(x,ltk(y)),ltk(y)) = x.
+equation forall x:bitstring, y:symkey; dec(enc(x,y),y) = x.
 
 fun symkey2bitstring(symkey):bitstring [typeConverter].
 fun bitstring2symk(bitstring):symkey [typeConverter].
@@ -36,9 +37,8 @@ event acceptI(id,id).
 event startR(id,id).
 event acceptR(id,id,bitstring).
 
-(*query event(reach()).*)
+query event(reach()).
 (*query attacker((new na, new nb)).*)
-query attacker((new r)).
 (*query attacker( new q ).*)
 (*query x:bitstring; inj-event(acceptR(a,b,x)) ==> inj-event(startI(a,b,x)).*)
 
@@ -46,47 +46,44 @@ query attacker((new r)).
 let PA(ia:id, ra:id) =
 	new na:bitstring;
 	event startI(ia, ra, na);
-	out(c, ia);
-	in(c, nBkA:bitstring);
-	let nonceB = adec(nBkA, sk(ia)) in
-	let nAkB = aenc(na, pk(ra)) in
-		out(c, nAkB);
-	in(c, enchNaNbAB:bitstring);
-	let hNaNbAB = hash((na, nonceB, ia, ra)) in
-	let hNbNaAB = hash((ra, ia, nonceB, na)) in
-	let enchNbNaBA = aenc(hNbNaAB, pk(ra)) in
-	if (hNaNbAB = adec(enchNaNbAB,sk(ia))) then 
-		out(c, enchNbNaBA);
-	
-	if( not(ia=d) || not(ra=d) ) then  (
-		new q:bitstring;
-		out(c, enc(q, ltk( bitstring2id((na, nonceB)) ) ));
-		event acceptI(ia, ra)
-	).
+	let aKb = aenc(id2bitstring(ia), pk(ra)) in
+	out(c, aKb);
+	in(c, (p1:bitstring, p2:bitstring));
+	let(=ra, nb:bitstring, kab:symkey) = dec(p2, ltk(ia)) in 
+	out(c, (p1, enc(nb, kab) ));
+	event acceptI(ia, ra).
 
 let PB(ib:id, rb:id)=
 	new nb:bitstring;
 	event startR(ib, rb);
-	in(c, =ib);
-	let nBkA = aenc(nb, pk(ib)) in
-		out(c, nBkA);
-	in(c, nAkB:bitstring);
-	let nonceA = adec(nAkB, sk(rb)) in
-	let hNaNbAB = hash((nonceA, nb, ib, rb)) in
-	let enchNaNbAB = aenc(hNaNbAB, pk(ib)) in 
-		out(c, enchNaNbAB);
-	in(c, enchNbNaBA:bitstring);
-	let hNbNaBA = adec(enchNbNaBA, sk(rb)) in 
-	if (hNbNaBA = hash( (rb, ib, nb, nonceA) ) && ( not(ib=d) || not(rb=d) ) ) then (
-		new r:bitstring;
-		out(c, enc(r, ltk( bitstring2id( (nonceA, nb)) ) ));
-		event acceptR(ib, rb, nb);
-		event reach
-	) else if (hNbNaBA = hash( (rb, ib, nb, nonceA) )) then (
-		event acceptR(ib, rb, nb)
-	).
+	in(c, aKb:bitstring);
+	let (=ib) = bitstring2id(adec(aKb, sk(rb))) in
+	let ABNb = (ib, rb, nb) in 
+	let encABNb = enc(ABNb, ltk(rb)) in 
+	out(c, (rb, encABNb));
+	in(c, (p1:bitstring, p2:bitstring));
+	let(=ib, kabstring:bitstring) = dec(p1, ltk(ib)) in 
+	let kab:symkey = bitstring2symkey(kabstring) in 
+	let (=nb) = dec(p2, kab) in 
+	event reach;
+	event acceptR(ib, rb, nb).
 
-process ! in(c,i1:id); ! in(c,r1:id);  PA(a, r1) | 
-		! in(c,i2:id); ! in(c,r2:id);  PB(i2, b) | 
-		out(c,sk(d)); out(c,ltk(d)) 
+let Sh() =
+	in(c, (idB:id,encABNb:bitstring) );
+	let kbs = ltk(idB) in 
+	let (idAstr:bitstring, idBstr:bitstring, nb:bitstring) =  dec(encABNb, kbs) in 
+	let idA:id = bitstring2id(idAstr) in 
+	let (=idB) = bitstring2id(idBstr) in 
+	let kas = ltk(idA) in 
+	let kab = ltkpair(idA, idB) in 
+	let AKab = enc((idA, kab), kbs) in 
+	let nbKab = enc((idB, nb, kab), kas) in 
+	out(c, (AKab, nbKab) ).
+
+	
+process ! in(c,i1:id); ! in(c,r1:id);  PA(a, b) | 
+		! in(c,i2:id); ! in(c,r2:id);  PB(a, b) | 
+		out(c,sk(d)); out(c,ltk(d))  |
+		Sh()
+		
 		

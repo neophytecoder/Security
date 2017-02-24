@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>ProVerif: process </title>
+  <link rel="stylesheet" href="cssproverif.css">
+</head>
+<body>
+<H1>Process</H1>
+<a name=occ1 class="occ">{1}</a> <span class="keyword">!</span><br>
+<a name=occ2 class="occ">{2}</a> <span class="keyword">in</span>(<span class="name">c</span>, <span class="var">i1</span>: <span class="type">id</span>);<br>
+<a name=occ3 class="occ">{3}</a> <span class="keyword">in</span>(<span class="name">c</span>, <span class="var">r1</span>: <span class="type">id</span>);<br>
+(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ4 class="occ">{4}</a> <span class="keyword">new</span> <span class="name">na</span>: <span class="type">bitstring</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ5 class="occ">{5}</a> <span class="keyword">event</span> <span class="fun">startI</span>(<span class="name">a</span>,<span class="var">r1</span>,<span class="name">na</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ6 class="occ">{6}</a> <span class="keyword">let</span> <span class="var">kas</span>: <span class="type">symkey</span> = <span class="fun">ltk</span>(<span class="name">a</span>) <span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ7 class="occ">{7}</a> <span class="keyword">let</span> <span class="var">bnakas</span>: <span class="type">bitstring</span> = <span class="fun">enc</span>(<span class="fun"></span>(<span class="var">r1</span>,<span class="name">na</span>),<span class="var">kas</span>) <span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ8 class="occ">{8}</a> <span class="keyword">out</span>(<span class="name">c</span>, <span class="fun"></span>(<span class="name">a</span>,<span class="var">bnakas</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ9 class="occ">{9}</a> <span class="keyword">in</span>(<span class="name">c</span>, <span class="var">bkabkas</span>: <span class="type">bitstring</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ10 class="occ">{10}</a> <span class="keyword">let</span> <span class="fun"></span>(=<span class="var">r1</span>,<span class="var">kab</span>: <span class="type">symkey</span>) = <span class="fun">dec</span>(<span class="var">bkabkas</span>,<span class="var">kas</span>) <span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ11 class="occ">{11}</a> <span class="keyword">in</span>(<span class="name">c</span>, <span class="var">nanbkab</span>: <span class="type">bitstring</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ12 class="occ">{12}</a> <span class="keyword">let</span> <span class="fun"></span>(=<span class="name">na</span>,<span class="var">nb</span>: <span class="type">bitstring</span>) = <span class="fun">dec</span>(<span class="var">nanbkab</span>,<span class="var">kab</span>) <span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ13 class="occ">{13}</a> <span class="keyword">if</span> (<span class="fun">not</span>((<span class="name">a</span> <span class="fun">=</span> <span class="name">d</span>)) <span class="fun">||</span> <span class="fun">not</span>((<span class="var">r1</span> <span class="fun">=</span> <span class="name">d</span>))) <span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ14 class="occ">{14}</a> <span class="keyword">new</span> <span class="name">q</span>: <span class="type">bitstring</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ15 class="occ">{15}</a> <span class="keyword">out</span>(<span class="name">c</span>, <span class="fun">enc</span>(<span class="name">q</span>,<span class="fun">ltkpairstring</span>(<span class="name">na</span>,<span class="var">nb</span>)));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ16 class="occ">{16}</a> <span class="keyword">event</span> <span class="fun">acceptI</span>(<span class="name">a</span>,<span class="var">r1</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ17 class="occ">{17}</a> <span class="keyword">new</span> <span class="name">qs</span>: <span class="type">bitstring</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ18 class="occ">{18}</a> <span class="keyword">out</span>(<span class="name">c</span>, <span class="fun">enc</span>(<span class="name">qs</span>,<span class="var">kab</span>))<br>
+) | (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ19 class="occ">{19}</a> <span class="keyword">!</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ20 class="occ">{20}</a> <span class="keyword">in</span>(<span class="name">c</span>, <span class="var">i2</span>: <span class="type">id</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ21 class="occ">{21}</a> <span class="keyword">in</span>(<span class="name">c</span>, <span class="var">r2</span>: <span class="type">id</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ22 class="occ">{22}</a> <span class="keyword">new</span> <span class="name">nb_31</span>: <span class="type">bitstring</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ23 class="occ">{23}</a> <span class="keyword">event</span> <span class="fun">startR</span>(<span class="var">i2</span>,<span class="var">r2</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ24 class="occ">{24}</a> <span class="keyword">let</span> <span class="var">kbs</span>: <span class="type">symkey</span> = <span class="fun">ltk</span>(<span class="var">r2</span>) <span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ25 class="occ">{25}</a> <span class="keyword">in</span>(<span class="name">c</span>, <span class="var">anakabkbs</span>: <span class="type">bitstring</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ26 class="occ">{26}</a> <span class="keyword">let</span> <span class="fun"></span>(=<span class="var">i2</span>,<span class="var">na_32</span>: <span class="type">bitstring</span>,<span class="var">kab_33</span>: <span class="type">symkey</span>) = <span class="fun">dec</span>(<span class="var">anakabkbs</span>,<span class="var">kbs</span>) <span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ27 class="occ">{27}</a> <span class="keyword">out</span>(<span class="name">c</span>, <span class="fun">enc</span>(<span class="fun"></span>(<span class="var">na_32</span>,<span class="name">nb_31</span>),<span class="var">kab_33</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ28 class="occ">{28}</a> <span class="keyword">if</span> (<span class="fun">not</span>((<span class="var">i2</span> <span class="fun">=</span> <span class="name">d</span>)) <span class="fun">||</span> <span class="fun">not</span>((<span class="var">r2</span> <span class="fun">=</span> <span class="name">d</span>))) <span class="keyword">then</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ29 class="occ">{29}</a> <span class="keyword">event</span> <span class="fun">reach</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ30 class="occ">{30}</a> <span class="keyword">event</span> <span class="fun">acceptR</span>(<span class="var">i2</span>,<span class="var">r2</span>,<span class="name">nb_31</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ31 class="occ">{31}</a> <span class="keyword">new</span> <span class="name">r</span>: <span class="type">bitstring</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ32 class="occ">{32}</a> <span class="keyword">out</span>(<span class="name">c</span>, <span class="fun">enc</span>(<span class="name">r</span>,<span class="fun">ltkstr</span>(<span class="name">nb_31</span>)));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ33 class="occ">{33}</a> <span class="keyword">new</span> <span class="name">rs</span>: <span class="type">bitstring</span>;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ34 class="occ">{34}</a> <span class="keyword">out</span>(<span class="name">c</span>, <span class="fun">enc</span>(<span class="name">rs</span>,<span class="var">kab_33</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;) | (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ35 class="occ">{35}</a> <span class="keyword">out</span>(<span class="name">c</span>, <span class="fun">sk</span>(<span class="name">d</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ36 class="occ">{36}</a> <span class="keyword">out</span>(<span class="name">c</span>, <span class="fun">ltk</span>(<span class="name">d</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) | (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ37 class="occ">{37}</a> <span class="keyword">in</span>(<span class="name">c</span>, <span class="fun"></span>(<span class="var">idA</span>: <span class="type">id</span>,<span class="var">bnakas_34</span>: <span class="type">bitstring</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ38 class="occ">{38}</a> <span class="keyword">let</span> <span class="var">kas_35</span>: <span class="type">symkey</span> = <span class="fun">ltk</span>(<span class="var">idA</span>) <span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ39 class="occ">{39}</a> <span class="keyword">let</span> <span class="fun"></span>(<span class="var">idB</span>: <span class="type">id</span>,<span class="var">na_36</span>: <span class="type">bitstring</span>) = <span class="fun">dec</span>(<span class="var">bnakas_34</span>,<span class="var">kas_35</span>) <span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ40 class="occ">{40}</a> <span class="keyword">let</span> <span class="var">kbs_37</span>: <span class="type">symkey</span> = <span class="fun">ltk</span>(<span class="var">idB</span>) <span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ41 class="occ">{41}</a> <span class="keyword">let</span> <span class="var">kab_38</span>: <span class="type">symkey</span> = <span class="fun">ltkpair</span>(<span class="var">idA</span>,<span class="var">idB</span>) <span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ42 class="occ">{42}</a> <span class="keyword">out</span>(<span class="name">c</span>, <span class="fun">enc</span>(<span class="fun"></span>(<span class="var">idB</span>,<span class="var">kab_38</span>),<span class="var">kas_35</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ43 class="occ">{43}</a> <span class="keyword">out</span>(<span class="name">c</span>, <span class="fun">enc</span>(<span class="fun"></span>(<span class="var">idA</span>,<span class="var">na_36</span>,<span class="var">kab_38</span>),<span class="var">kbs_37</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;) | (<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ44 class="occ">{44}</a> <span class="keyword">in</span>(<span class="name">c</span>, <span class="fun"></span>(<span class="var">idA_39</span>: <span class="type">id</span>,<span class="var">bnakas_40</span>: <span class="type">bitstring</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ45 class="occ">{45}</a> <span class="keyword">let</span> <span class="var">kas_41</span>: <span class="type">symkey</span> = <span class="fun">ltk</span>(<span class="var">idA_39</span>) <span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ46 class="occ">{46}</a> <span class="keyword">let</span> <span class="fun"></span>(<span class="var">idB_42</span>: <span class="type">id</span>,<span class="var">na_43</span>: <span class="type">bitstring</span>) = <span class="fun">dec</span>(<span class="var">bnakas_40</span>,<span class="var">kas_41</span>) <span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ47 class="occ">{47}</a> <span class="keyword">let</span> <span class="var">kbs_44</span>: <span class="type">symkey</span> = <span class="fun">ltk</span>(<span class="var">idB_42</span>) <span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ48 class="occ">{48}</a> <span class="keyword">let</span> <span class="var">kab_45</span>: <span class="type">symkey</span> = <span class="fun">ltkpair</span>(<span class="var">idA_39</span>,<span class="var">idB_42</span>) <span class="keyword">in</span><br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ49 class="occ">{49}</a> <span class="keyword">out</span>(<span class="name">c</span>, <span class="fun">enc</span>(<span class="fun"></span>(<span class="var">idB_42</span>,<span class="var">kab_45</span>),<span class="var">kas_41</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ50 class="occ">{50}</a> <span class="keyword">out</span>(<span class="name">c</span>, <span class="fun">enc</span>(<span class="fun"></span>(<span class="var">idA_39</span>,<span class="var">na_43</span>,<span class="var">kab_45</span>),<span class="var">kbs_44</span>));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ51 class="occ">{51}</a> <span class="keyword">out</span>(<span class="name">c</span>, <span class="var">kas_41</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ52 class="occ">{52}</a> <span class="keyword">out</span>(<span class="name">c</span>, <span class="var">kbs_44</span>);<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a name=occ53 class="occ">{53}</a> <span class="keyword">out</span>(<span class="name">c</span>, <span class="var">kab_45</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;)<br>
+)<br>
+<br>
+</body>
+</html>

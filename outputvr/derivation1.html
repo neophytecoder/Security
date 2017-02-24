@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN">
+<html>
+<head>
+  <title>ProVerif: derivation for query 1</title>
+  <link rel="stylesheet" href="cssproverif.css">
+</head>
+<body>
+<H1>Derivation</H1>
+Abbreviations:
+<ul>
+
+<li><span class="var">nb_17944</span> <span class="conn">=</span> <span class="name">nb_31</span>[r2 = <span class="name">b</span>[],i2 = <span class="name">a</span>[],!2 = <span class="var">endsid_17942</span>,r1 = <span class="var">r1_17938</span>,i1 = <span class="var">i1_17939</span>,!1 = <span class="var">@sid_17941</span>]
+</ul>
+<a href="clauses1.html#clause39" target="clauses">clause 39</a> <span class="pred">end</span>(<span class="var">endsid_17942</span>,<span class="fun">acceptR</span>(<span class="name">a</span>[],<span class="name">b</span>[],<span class="var">nb_17944</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause4" target="clauses">clause 4</a> <span class="pred">attacker</span>(<span class="fun">enc</span>(<span class="fun"></span>(<span class="name">a</span>[],<span class="var">na_17935</span>,<span class="var">kab_17936</span>),<span class="fun">ltk</span>(<span class="name">b</span>[])))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apply <span class="fun">3-tuple</span> <span class="pred">attacker</span>(<span class="fun"></span>(<span class="name">a</span>[],<span class="var">na_17935</span>,<span class="var">kab_17936</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="name">a</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">na_17935</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">kab_17936</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause49" target="clauses">clause 49</a> <span class="pred">attacker</span>(<span class="fun">ltk</span>(<span class="name">b</span>[]))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apply <span class="fun">2-tuple</span> <span class="pred">attacker</span>(<span class="fun"></span>(<span class="name">d</span>[],<span class="fun">enc</span>(<span class="fun"></span>(<span class="name">b</span>[],<span class="var">na_17922</span>),<span class="fun">ltk</span>(<span class="name">d</span>[]))))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause20" target="clauses">clause 20</a> <span class="pred">attacker</span>(<span class="name">d</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause4" target="clauses">clause 4</a> <span class="pred">attacker</span>(<span class="fun">enc</span>(<span class="fun"></span>(<span class="name">b</span>[],<span class="var">na_17922</span>),<span class="fun">ltk</span>(<span class="name">d</span>[])))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;apply <span class="fun">2-tuple</span> <span class="pred">attacker</span>(<span class="fun"></span>(<span class="name">b</span>[],<span class="var">na_17922</span>))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;duplicate <span class="pred">attacker</span>(<span class="name">b</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">na_17922</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause43" target="clauses">clause 43</a> <span class="pred">attacker</span>(<span class="fun">ltk</span>(<span class="name">d</span>[]))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">r2_17908</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">i2_17909</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">r1_17910</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">i1_17911</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">r2_17923</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">i2_17924</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">r1_17925</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;any <span class="pred">attacker</span>(<span class="var">i1_17926</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause22" target="clauses">clause 22</a> <span class="pred">attacker</span>(<span class="name">b</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href="clauses1.html#clause23" target="clauses">clause 23</a> <span class="pred">attacker</span>(<span class="name">a</span>[])<br>
+&nbsp;&nbsp;&nbsp;&nbsp;hypothesis <span class="pred">attacker</span>(<span class="var">r1_17938</span>)<br>
+&nbsp;&nbsp;&nbsp;&nbsp;hypothesis <span class="pred">attacker</span>(<span class="var">i1_17939</span>)<br>
+</body>
+</html>

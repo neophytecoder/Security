@@ -1,0 +1,107 @@
+free c:channel.  (* declaring a free channel name *)
+
+type id.
+type symkey.
+type pkey.
+type skey.
+
+free a, b, s, d:id.
+
+
+(* Symetric key cryptography *)
+fun ltk(id):symkey [private].		(* public key*)
+fun ltkpair(id,id):symkey [private].		(* public key*)
+fun ltkpairstring(bitstring,bitstring):symkey [private].		(* public key*)
+fun ltkstr(bitstring):symkey [private].	
+fun enc(bitstring, symkey):bitstring. 	(* symmetric encryption *)
+fun dec(bitstring, symkey):bitstring.	(* symmetric decryption *)
+equation forall x:bitstring, y:symkey; dec(enc(x,y),y) = x.
+
+fun symkey2bitstring(symkey):bitstring [typeConverter].
+fun bitstring2symk(bitstring):symkey [typeConverter].
+fun id2bitstring(id):bitstring [typeConverter].
+fun bitstring2id(bitstring):id [typeConverter].
+fun bitstring2symkey(bitstring):symkey [typeConverter].
+
+(* hash function *)
+fun hash(bitstring):bitstring.
+
+(* Asymmetric key cryptography *)
+fun pk(id):pkey.			(* public key*)
+fun sk(id):skey [private]. (* sk is a private function, i.e. cannot be applied by the adversary *)
+fun aenc(bitstring, pkey):bitstring. 	(* asymmetric encryption *)
+fun adec(bitstring, skey):bitstring.	(* asymmetric decryption *)
+equation forall x:bitstring, y:id; adec(aenc(x,pk(y)),sk(y)) = x.
+
+event reach.
+event startI(id,id,bitstring).
+event acceptI(id,id).
+event startR(id,id).
+event acceptR(id,id,bitstring).
+
+(*query event(reach()).*)
+(*query attacker((new na, new nb)).*)
+(*query attacker((new rs, new qs)).*)
+(*query attacker( new r ).*)
+query x:bitstring; inj-event(acceptR(a,b,x)) ==> inj-event(startI(a,b,x)).
+
+
+let PA(ia:id, ra:id) =
+	new na:bitstring;
+	event startI(ia, ra, na);
+	let kas = ltk(ia) in 
+	let bnakas = enc((ra,na), kas) in 
+	out(c, (ia, bnakas));
+	in(c, bkabkas:bitstring);
+	let(=ra, kab:symkey) = dec(bkabkas, kas) in 
+	in(c, nanbkab:bitstring);
+	let(=na, nb:bitstring) = dec(nanbkab, kab) in 
+	if( not(ia=d) || not(ra=d) ) then  (
+		new q:bitstring;
+		out(c, enc(q, ltkpairstring(na,nb)));
+		event acceptI(ia, ra);
+		new qs:bitstring;
+		out(c, enc(qs, kab))
+	).
+
+let PB(ib:id, rb:id)=
+	new nb:bitstring;
+	event startR(ib, rb);
+	let kbs = ltk(rb) in 
+	in(c, anakabkbs:bitstring);
+	let (=ib, na:bitstring, kab:symkey) = dec(anakabkbs, kbs) in 
+	out(c, enc((na,nb), kab) );
+	if( not(ib=d) || not(rb=d) ) then  (
+		event reach;
+		event acceptR(ib, rb, nb);
+		new r:bitstring;
+		out(c, enc(r, ltkstr(nb)));
+		new rs:bitstring;
+		out(c, enc(rs, kab))
+	).
+
+let Sh() =
+	in(c, (idA:id, bnakas:bitstring) );
+	let kas = ltk(idA) in 
+	let (idB:id, na:bitstring) = dec(bnakas, kas) in 
+	let kbs = ltk(idB) in 
+	let kab = ltkpair(idA, idB) in 
+	out(c, enc((idB, kab), kas) );
+	out(c, enc((idA, na, kab), kbs) ).
+
+let Sd() =
+	in(c, (idA:id, bnakas:bitstring) );
+	let kas = ltk(idA) in 
+	let (idB:id, na:bitstring) = dec(bnakas, kas) in 
+	let kbs = ltk(idB) in 
+	let kab = ltkpair(idA, idB) in 
+	out(c, enc((idB, kab), kas) );
+	out(c, enc((idA, na, kab), kbs) );
+	out(c, kas); out(c, kbs); out(c, kab).
+
+	
+process ! in(c,i1:id); in(c,r1:id); PA(a,r1) | 
+		! in(c,i2:id); in(c,r2:id); PB(i2,r2) | 
+		out(c,sk(d)); out(c, ltk(d)) |
+		Sh() |
+		Sd()
