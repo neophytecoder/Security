@@ -9,7 +9,7 @@ free a, b, s, d:id.
 
 
 (* Symetric key cryptography *)
-fun ltk(id):symkey [private].		(* public key*)
+fun ltk(id):symkey [private].		(* symmetric key*)
 fun enc(bitstring, symkey):bitstring. 	(* symmetric encryption *)
 fun dec(bitstring, symkey):bitstring.	(* symmetric decryption *)
 equation forall x:bitstring, y:id; dec(enc(x,ltk(y)),ltk(y)) = x.
@@ -38,7 +38,7 @@ event acceptR(id,id,bitstring).
 
 (*query event(reach()).*)
 (*query attacker((new na, new nb)).*)
-query attacker((new r)).
+query attacker((new q, new r)).			(* A property to check whether the attacker can retrieve q and r. *)
 (*query attacker( new q ).*)
 (*query x:bitstring; inj-event(acceptR(a,b,x)) ==> inj-event(startI(a,b,x)).*)
 
@@ -46,47 +46,46 @@ query attacker((new r)).
 let PA(ia:id, ra:id) =
 	new na:bitstring;
 	event startI(ia, ra, na);
-	out(c, ia);
-	in(c, nBkA:bitstring);
+	out(c, ia);						(* a --> b: A *)
+	in(c, nBkA:bitstring);			(* b --> a: {Nb}pk(A) *)
 	let nonceB = adec(nBkA, sk(ia)) in
 	let nAkB = aenc(na, pk(ra)) in
-		out(c, nAkB);
-	in(c, enchNaNbAB:bitstring);
+		out(c, nAkB);				(* a --> b: {Na}pk(B)*)
+	in(c, enchNaNbAB:bitstring);	(* b --> a: {ℎ(Na,Nb,A,B)}pk(A) *)
 	let hNaNbAB = hash((na, nonceB, ia, ra)) in
 	let hNbNaAB = hash((ra, ia, nonceB, na)) in
 	let enchNbNaBA = aenc(hNbNaAB, pk(ra)) in
 	if (hNaNbAB = adec(enchNaNbAB,sk(ia))) then 
-		out(c, enchNbNaBA);
-	
-	if( not(ia=d) || not(ra=d) ) then  (
-		new q:bitstring;
-		out(c, enc(q, ltk( bitstring2id((na, nonceB)) ) ));
+		out(c, enchNbNaBA);					(* a --> b: {ℎ(B, A, Nb,Na)}pk(B) *)
+	if( not(ia=d) || not(ra=d) ) then  (	(* the attacker does not communicate with itself *)
+		new q:bitstring;					
+		out(c, enc(q, ltk( bitstring2id((na, nonceB)) ) )); (* q is encrypted with na and nb *)
 		event acceptI(ia, ra)
 	).
 
 let PB(ib:id, rb:id)=
 	new nb:bitstring;
 	event startR(ib, rb);
-	in(c, =ib);
+	in(c, =ib);							(* a --> b: A *)
 	let nBkA = aenc(nb, pk(ib)) in
-		out(c, nBkA);
-	in(c, nAkB:bitstring);
+		out(c, nBkA);					(* b --> a: {Nb}pk(A) *)
+	in(c, nAkB:bitstring);				(* a --> b: {Na}pk(B) *)
 	let nonceA = adec(nAkB, sk(rb)) in
 	let hNaNbAB = hash((nonceA, nb, ib, rb)) in
 	let enchNaNbAB = aenc(hNaNbAB, pk(ib)) in 
-		out(c, enchNaNbAB);
-	in(c, enchNbNaBA:bitstring);
+		out(c, enchNaNbAB);				(* b --> a: {ℎ(Na,Nb,A,B)}pk(A) *)
+	in(c, enchNbNaBA:bitstring);		(* a --> b: {ℎ(B, A, Nb,Na)}pk(B) *)
 	let hNbNaBA = adec(enchNbNaBA, sk(rb)) in 
 	if (hNbNaBA = hash( (rb, ib, nb, nonceA) ) && ( not(ib=d) || not(rb=d) ) ) then (
 		new r:bitstring;
-		out(c, enc(r, ltk( bitstring2id( (nonceA, nb)) ) ));
+		out(c, enc(r, ltk( bitstring2id( (nonceA, nb)) ) ));	(* r is encrypted with na and nb *)
 		event acceptR(ib, rb, nb);
 		event reach
 	) else if (hNbNaBA = hash( (rb, ib, nb, nonceA) )) then (
 		event acceptR(ib, rb, nb)
 	).
 
-process ! in(c,i1:id); ! in(c,r1:id);  PA(a, r1) | 
-		! in(c,i2:id); ! in(c,r2:id);  PB(i2, b) | 
+process ! in(c,r1:id);  PA(a, r1) | 
+		! in(c,i2:id);  PB(i2, b) | 
 		out(c,sk(d)); out(c,ltk(d)) 
 		
